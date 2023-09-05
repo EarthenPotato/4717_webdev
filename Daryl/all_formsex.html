@@ -8,11 +8,20 @@
 <header>
   <h1>All forms</h1>
 </header>
+<style>
+   form { background-color:#eaeaea; font-family: Arial, sans-serif;
+   width: 350px; padding: 10px;}
+   label { float: left; clear: left; display: block; width: 100px;
+   text-align: center; padding-right: 10px; margin-top: 10px; }
+   input, textarea { margin-top: 10px; display: block;}
+</style>
 
  <h2>Sign Up</h2>
 <form action="show_get.php" method="get"> 
-   Email: <input type="text" name="CustEmail"  id="CustEmail" ><br >
-   <input type="submit" value="Sign Me Up!"> <input type="reset">
+   <label for="email">E-mail:</label>
+   <input type="email" name="email" id="email" required><br>
+   <input type="submit" value="Sign Me Up">
+   <input type="reset" value="Clear">
 </form>
 
  <h2>Input element</h2>
@@ -38,7 +47,7 @@
 <form action="show_get.php" method="get"> 
    <input type="checkbox" name="browser[]" value="ie"> Internet Explore<br>
    <input type="checkbox" name="browser[]" value="moz" checked> Firefox<br>
- <input type="submit"> 
+   <input type="submit"> 
 </form>
 
 <h2>Radio</h2>
@@ -46,13 +55,13 @@
    <input type="radio" name="browser" value="ie"> Internet Explore<br>
    <input type="radio" name="browser" value="moz" checked> Firefox<br>
    <input type="radio" name="browser" value="Opera"> Opera<br>
- <input type="submit"> 
+   <input type="submit"> 
 </form>
 
 <h2>Scrolling</h2>
 <form action="show_get.php" method="get"> 
    <textarea type="textarea" name="comments" rows="4" cols="40">Enter your comments here </textarea>
-<input type="submit"> 
+   <input type="submit"> 
 </form>
 
 <h2>Select List</h2>
@@ -62,7 +71,7 @@
    <option value="ie"> Internet Explorer  </option>
    <option value="chrome"> Chrome  </option>
    <option value="safari"> Safari </option>
-<input type="submit"> 
+   <input type="submit"> 
 </form>
 
 <h2>Select List Show all</h2>
@@ -72,27 +81,27 @@
    <option value="ie"> Internet Explorer  </option>
    <option value="chrome"> Chrome  </option>
    <option value="safari"> Safari </option>
-<input type="submit"> 
+   <input type="submit"> 
 </form>
 
 <h2>Text w/ Reset 1</h2>
 <form action="show_get.php" method="get"> 
    <textarea type="textarea" name="comments" rows="3" cols="20"> Comments : </textarea>
-<input type="submit">  
-<input type="reset">
+   <input type="submit">  
+   <input type="reset">
 </form>
 
 <h2>Text w/ Reset 1</h2> 
 <form action="show_get.php" method="get"> 
    <textarea type="textarea" name="comments" rows="3" cols="20"> Comments : </textarea>
-<input type="submit" value="Submit Comments">  
-<input type="reset" value="Clear Comments">
+   <input type="submit" value="Submit Comments">  
+   <input type="reset" value="Clear Comments">
 </form>
 
 <h2>Hidden input</h2>
 <form action="show_get.php" method="get"> 
    <input type="hidden" name="sendto" value="secret message">
-<input type="submit" value="Submit it">  
+   <input type="submit" value="Submit it">  
 </form>
 
 <h2>Fieldset and Legend</h2>
@@ -101,6 +110,22 @@
    <label>Email:   <input type="text" name="CEmail"  id="CEmail"></label>
  </fieldset> <br><br>
 
+<h2>Calandar</h2>
+<form action="show_get.php" method="get"> 
+   <label for="myDate">Choose a Date</label>
+   <input type="date" name="myDate" id ="myDate"><br>
+   <input type="submit" value="Submit it">  
+   <input type="reset" value="Reset">
+</form>
+
+<h2>Time</h2>
+<form action="show_get.php" method="get"> 
+   <label for="mySartTime">Choose the Start Time</label>
+   <input type="time" name="myStarttime" id="myStartTimeID"> <br><br>
+   <label for="myEndTime">Choose the End Time</label>
+   <input type="time" name="myEndTime" id="myEndTimeID"> <br><br>
+   <input type="submit" value="Send"> <input type="reset">
+</form>
 
 <footer>
   <small><i>Copyright &copy; 2023 Heng Ew-Jynn Daryl</i></small>

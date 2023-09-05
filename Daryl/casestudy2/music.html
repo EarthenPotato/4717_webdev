@@ -5,32 +5,64 @@
     <title>hompage
     </title>
     <meta charset=“utf-8”>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <header>
     <h1>JavaJam Coffee House</h1>
-</header>
-<nav>
-    <b><a href = 'index.html'>Home</a>
-        <a href = 'menu.html'>Menu</a>
-        <a href = 'music.html'>Music</a>
-        <a href = 'job.html'>Jobs</a>
-    </b>
-</nav>
-<div>
-    <h2>Service to meet you needs</h2>
-    <dl>
-        <dt><strong>Website design</strong></dt>
-        <dd>large or small tri can get you on the web</dd>
-        <dt><strong>E-commerce solutions</strong></dt>
-        <dd>quick entry into e-commerce</dd>
-        <dt><strong>Search Engine Opp</strong></dt>
-        <dd>tri can get your site noticed</dd>
-</div>
-<footer>
-    <small><i>copyright &copy;</i></small>
-    <a href="mailto:heng0230@e.ntu.edu.sg">DarylMail</a>
-</footer>
+  </header>
 <body>
-
+<div id="wrapper">
+    <div id="leftcolumn">
+      <nav>
+        <a href = 'index.html'>Home</a> 
+        <a href = 'menu.html'>Menu</a> 
+        <a href = 'music.html'>Music</a> 
+        <a href = 'job.html'>Jobs</a> 
+      </nav>
+    </div>
+    <div id="rightcolumn">
+        <h3>Music at Java Jam</h3>
+      <table>
+        <tr>
+            <th colspan="2">January</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="lighthouseisland.jpg" alt="Image Description" width="70" height="70">
+            </td>
+            <td>
+                <p>audio 1</p>
+                <!-- Embed the MP3 file using an <audio> element -->
+                <audio controls>
+                    <source src="your-audio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">Feburary</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="lighthouseisland.jpg" alt="Image Description" width="70" height="70">
+            </td>
+            <td>
+                <p>audio 2</p>
+                <!-- Embed the MP3 file using an <audio> element -->
+                <audio controls>
+                    <source src="your-audio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+      </table>
+      
+    
+    </div>
+  </div>
+    <footer>
+        <small><i>copyright &copy;2023 javajam coffee house DarylHengU2020767F</i></small>
+        <a href="mailto:heng0230@e.ntu.edu.sg">DarylMail</a>
+    </footer>
 </body>
 </html>
