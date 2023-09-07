@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaJam Coffee House - Jobs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>JavaJam Coffee House</h1>
+        </header>
+            <div id="leftcolumn">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="music.html">Music</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                    </ul>
+                </nav>
+            </div>
+        <div id="rightcolumn">
+        <h3>Jobs at JavaJam</h3>
+        <p>Want to work at JavaJam? Fill out the form below to start your application. Required fields are marked with an asterisk *</p>
+        <div class="content">
+            <form action="show_get.php" method="get">
+                <label for="name" style="display: inline-block">*Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name here" required><br>
+                <label for="email" style="display: inline-block">*Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your Email-ID here" required><br>
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date"><br>
+                <label for="experience">*Experience:</label>
+                <textarea id="experience" name="experience" rows="4" placeholder="Enter your past experience here" required></textarea><br>
+                <input id="submit" type="submit" value="Apply Now" style="display: inline-block;"><input type="reset" value="Clear" style="display: inline-block;">
+            </form>
+        </div>
+        </div>
+        <footer>
+            <small><i>Copyright &copy; 2023 JavaJam Coffee House<br>
+            <a href="mailto: qinbo@jiang.com">qinbo@jiang.com</a></i></small>
+        </footer>
+    </div>
+</body>
+</html>
