@@ -34,6 +34,7 @@ header {
     text-align: center;
     padding: 20px 0;
     width: 80%;
+    min-width: 850px;
     margin: auto;
 }
 
@@ -44,6 +45,7 @@ footer {font-size:70%;
     color: #f0cd34;
     background-color: #884d00;
     width: 80%;
+    min-width: 850px;
     margin: auto;
 
 }	
@@ -80,6 +82,7 @@ ul {
 
 #wrapper { background-color: #ebc793; 
     width: 80%;
+    min-width: 850px;
     margin: auto;
     min-width: 850px;	
        
