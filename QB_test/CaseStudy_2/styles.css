@@ -17,7 +17,7 @@ nav a {
     color: #573c22; 
 }
 header {
-    background-color: #7d5730;
+    background-color: #d1b38f;
     color: #ffffff;
     font-family: Copperplate, "Copperplate Gothic Light", fantasy;
     font-size: 150%;
@@ -92,7 +92,7 @@ textarea {
     margin-right: -30px;
 }
 footer {
-    background-color: #7d5730;
+    background-color: #d1b38f;
     width: 100%;
     text-align: center;
     clear: right;
