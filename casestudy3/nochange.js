@@ -31,6 +31,7 @@ function computeSubCost(Cafe_au_Lait_price,Iced_Cappuccino_price,Just_Java_price
 
   sub_cost = Java_cost + Cafe_au_Lait_cost + Iced_Cappuccino_cost
 }
+
 function radio_value(drink){
   var dom = document.getElementById("myForm")
   
