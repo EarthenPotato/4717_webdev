@@ -7,29 +7,38 @@ function validateForm() {
     
     // Get references to the form elements:
     var email = document.getElementById('email');
-    var password = document.getElementById('password');
 
     var emailPattern =/^[a-zA-Z0-9.-]+@([a-zA-Z0-9]+\.){1,3}[a-zA-Z]{2,3}$/;
-    var namePattern = /^[a-zA-Z0-9\s]$/;
+    var namePattern = /^[a-zA-Z\s]+$/;
 
-    // Validate email using the regular expression:
+    //Validations
+    
+    if (!namePattern.test(nametext.value)) {
+        alert('Please enter a valid Name! No numbers');
+        return false;
+    }
+
     if (!emailPattern.test(email.value)) {
         alert('Please enter a valid email address!');
         return false;
     }
 
-    if (!namePattern.test(nametext.value)) {
-        alert('Please enter a valid Name!');
-        return false;
-    }
+    return true; 
+} 
 
-    // If both email and password are valid, return true:
-    return true;
+function setMinDateToTomorrow() {
+    const today = new Date();
     
-} // End of validateForm() function.
+    // Add one day to get tomorrow
+    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+    
+    // Format the date in YYYY-MM-DD format
+    const formattedDate = tomorrow.toISOString().split('T')[0];
 
-// Function called when the window has been loaded.
-// Function needs to add an event listener to the form.
+    // Set the min attribute of the input element to restrict past dates
+    document.getElementById("startDate").min = formattedDate;
+}
+
 function init() {
     'use strict';
     
