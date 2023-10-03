@@ -9,8 +9,8 @@ function validateForm() {
     var email = document.getElementById('email');
     var password = document.getElementById('password');
 
-    var emailPattern = /^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}(\.[a-zA-Z]{2,3})?$/;
-
+    var emailPattern =/^[a-zA-Z0-9.-]+@([a-zA-Z0-9]+\.){1,3}[a-zA-Z]{2,3}$/;
+    var namePattern = /^[a-zA-Z0-9\s]$/;
 
     // Validate email using the regular expression:
     if (!emailPattern.test(email.value)) {
@@ -18,9 +18,8 @@ function validateForm() {
         return false;
     }
 
-    // Validate password:
-    if (email.value.length === 0 || password.value.length === 0) {
-        alert('Please complete the form!');
+    if (!namePattern.test(nametext.value)) {
+        alert('Please enter a valid Name!');
         return false;
     }
 
