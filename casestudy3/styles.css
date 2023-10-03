@@ -124,7 +124,17 @@ footer {
     margin-right: 30px;
     margin-bottom: 20px;
 }
-.radio-item {
-    display: flex;
-    align-items: left;
+.inline-button {
+    display: inline-block;
+    margin-left: -40px;
+    margin-right: 0px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+.inline-text {
+    display: inline-block;
+    margin-right: -40px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    text-align: left;
 }
