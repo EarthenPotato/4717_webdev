@@ -27,21 +27,21 @@ function validateForm() {
 } 
 
 function setMinDateToTomorrow() {
-    const today = new Date();
-    
-    // Add one day to get tomorrow
-    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
-    
-    // Format the date in YYYY-MM-DD format
-    const formattedDate = tomorrow.toISOString().split('T')[0];
+    var today = new Date();
 
-    // Set the min attribute of the input element to restrict past dates
-    document.getElementById("startDate").min = formattedDate;
+    // Format the date as 'YYYY-MM-DD'
+    var yyyy = today.getFullYear();
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+    var dd = String(today.getDate() + 1).padStart(2, '0');
+    var formattedDate = yyyy+'-'+ mm+'-'+dd;
+
+    // Set the 'min' attribute of the input element
+    document.getElementById('start_Date').setAttribute('min', formattedDate);
 }
 
 function init() {
     'use strict';
-    
+    setMinDateToTomorrow()
     // Confirm that document.getElementById() can be used:
     if (document && document.getElementById) {
         var loginForm = document.getElementById('loginForm');
