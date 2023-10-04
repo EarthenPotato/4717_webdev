@@ -7,19 +7,7 @@ var Java_btn
 var Cafe_btn
 var Iced_btn
 function computeCost() {
-  var Just_Java = document.getElementById("1").value;
-  var Cafe_au_Lait_s = document.getElementById("2").value;
-  var Cafe_au_Lait_d = document.getElementById("3").value;
-  var Iced_Cappuccino_s = document.getElementById("4").value;
-  var Iced_Cappuccino_d = document.getElementById("5").value;
-// Compute the cost
 
-  document.getElementById("cost").value = 
-  totalCost = Just_Java * 2.00
-            + Cafe_au_Lait_s * 2.00
-            + Cafe_au_Lait_d * 3.00
-            + Iced_Cappuccino_s * 4.75
-            + Iced_Cappuccino_d * 5.75;
 }  //* end of computeCost
 
 function computeSubCost(Iced_Cappuccino_price,Cafe_au_Lait_price,Just_Java_price){
@@ -79,7 +67,7 @@ function radio_value(drink_name){
 function update_sub_price(drink_name){
   if (drink_name == 'Java'){
     if (Java_btn == 0){
-      computeSubCost(0,0,2)
+      document.getElementById("Java_sub_cost").textContent = "$" +computeSubCost(0,0,2)
     }
     else{
       alert("Please select a drink");
@@ -87,10 +75,10 @@ function update_sub_price(drink_name){
   }
   if (drink_name == 'Cafe'){
     if (Cafe_btn == 0){
-      computeSubCost(0,2,0);
+      document.getElementById("Cafe_sub_cost").textContent = "$" +computeSubCost(0,2,0);
     }
     else if(Cafe_btn == 1){
-      computeSubCost(0,3,0);
+      document.getElementById("Cafe_sub_cost").textContent = "$" +computeSubCost(0,3,0);
     }
     else{
       alert("Please select a drink");
@@ -98,10 +86,10 @@ function update_sub_price(drink_name){
   }
   if (drink_name == 'Iced'){
     if (Iced_btn == 0){
-      computeSubCost(4.75,0,0);
+      document.getElementById("Iced_sub_cost").textContent = "$" +computeSubCost(4.75,0,0);
     }
     else if (Iced_btn == 1){
-      computeSubCost(5.75,0,0);
+      document.getElementById("Iced_sub_cost").textContent = "$" + computeSubCost(5.75,0,0);
     }
     else{
       alert("Please select a drink");

@@ -29,32 +29,30 @@
                     <td><strong>Just Java</strong></td>
                     <td>Regular house blend, decaffeinated coffee or flavour of the day.<br>
                         <strong><label class="inline-text"><input type = "radio"  name = "Java" value = "1"  onclick = "radio_value('Java')" class="inline-button"/> Single $2.00 </label> 
-                        <td> <input type = "number"  id = "Java_num"  style="width: 100px;" onchange="update_sub_price('Java')"/> </td>
-                        <td></td>
+                        <td> <input type = "number"  id = "Java_num"  style="width: 100px;" onchange="update_sub_price('Java')" min = "0"/> </td>
+                        <td id = "Java_sub_cost">$0.00</td>
                 </tr>
                 <tr>
                     <td><strong>Cafe au Lait</strong></td>
                     <td>House blended coffe infused into a smooth, steamed milk.<br>
                         <strong><label class="inline-text"> <input type = "radio"  name = "Cafe" value = "2" onclick = "radio_value('Cafe')" class="inline-button" /> Single $2.00 </label> 
                         <label class="inline-text"> <input type = "radio"  name = "Cafe" value = "3" onclick = "radio_value('Cafe')" class="inline-button"/> Double $3.00 </label> </strong>
-                    <td> <input type = "number"  id = "Cafe_num" style="width: 100px;" onchange="update_sub_price('Cafe')" /> </td>
+                    <td> <input type = "number"  id = "Cafe_num" style="width: 100px;" onchange="update_sub_price('Cafe')" min = "0"/> </td>
+                    <td id = "Cafe_sub_cost">$0.00</td>
                 </tr>
                 <tr>
                     <td><strong>Iced Cappuccino</strong></td>
                     <td>Sweetened espresso blended with icy-cold milk and served in a chilled glass.<br>
                         <strong><label class="inline-text"> <input type = "radio"  name = "Iced" value = "4" onclick = "radio_value('Iced')" class="inline-button"/> Single $4.75 </label> 
                         <label class="inline-text"> <input type = "radio"  name = "Iced" value = "5" onclick = "radio_value('Iced')" class="inline-button"/> Double $5.75 </label> </strong>
-                    <td> <input type = "number"  id = "Iced_num" style="width: 100px;" onchange="update_sub_price('Iced')" /> </td>
+                    <td> <input type = "number"  id = "Iced_num" style="width: 100px;" onchange="update_sub_price('Iced')" min = "0"/> </td>
+                    <td id = "Iced_sub_cost">$0.00</td>
 
                 </tr>
                 <tr>
                     <td colspan="2"></td>
-                    <td>
-                    <input type = "button"  value = "Total Cost" 
-                           onclick = "computeCost();" />
-                    <input type = "text"  size = "20"  id = "cost" 
-                           onfocus = "this.blur();" />
-                    </td>   
+                    <td style = "text-align: center;"><strong>Total cost</strong></td>   
+                    <td id = "Total Price" onlick = "computeCost"></td>
                 </tr>
                 </table>
         </div>
