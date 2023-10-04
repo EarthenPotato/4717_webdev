@@ -7,8 +7,24 @@ var Java_btn
 var Cafe_btn
 var Iced_btn
 function computeCost() {
+  var Java_sub_cost_text = document.getElementById("Java_sub_cost").textContent.trim();
+  var Cafe_sub_cost_text = document.getElementById("Cafe_sub_cost").textContent.trim();
+  var Iced_sub_cost_text = document.getElementById("Iced_sub_cost").textContent.trim();
 
-}  //* end of computeCost
+  // Remove non-numeric characters from the text
+  Java_sub_cost_text = Java_sub_cost_text.replace(/[^0-9.]/g, '');
+  Cafe_sub_cost_text = Cafe_sub_cost_text.replace(/[^0-9.]/g, '');
+  Iced_sub_cost_text = Iced_sub_cost_text.replace(/[^0-9.]/g, '');
+
+  var Java_sub_cost = parseFloat(Java_sub_cost_text);
+  var Cafe_sub_cost = parseFloat(Cafe_sub_cost_text);
+  var Iced_sub_cost = parseFloat(Iced_sub_cost_text);
+
+  var totalCost = Java_sub_cost + Cafe_sub_cost + Iced_sub_cost;
+  console.log (totalCost)
+  document.getElementById("Total_Price").textContent = '$' + totalCost.toFixed(2); // Format as currency with 2 decimal places
+}
+
 
 function computeSubCost(Iced_Cappuccino_price,Cafe_au_Lait_price,Just_Java_price){
   var Just_Java = document.getElementById("Java_num").value
@@ -21,7 +37,7 @@ function computeSubCost(Iced_Cappuccino_price,Cafe_au_Lait_price,Just_Java_price
 
   sub_cost = Java_cost + Cafe_au_Lait_cost + Iced_Cappuccino_cost
   console.log('this is subcost', sub_cost)
-  return sub_cost
+  return sub_cost.toFixed(2)
 }
 
 function radio_value(drink_name){
@@ -67,7 +83,7 @@ function radio_value(drink_name){
 function update_sub_price(drink_name){
   if (drink_name == 'Java'){
     if (Java_btn == 0){
-      document.getElementById("Java_sub_cost").textContent = "$" +computeSubCost(0,0,2)
+      document.getElementById("Java_sub_cost").textContent = "$" +computeSubCost(0,0,2);
     }
     else{
       alert("Please select a drink");
@@ -89,7 +105,7 @@ function update_sub_price(drink_name){
       document.getElementById("Iced_sub_cost").textContent = "$" +computeSubCost(4.75,0,0);
     }
     else if (Iced_btn == 1){
-      document.getElementById("Iced_sub_cost").textContent = "$" + computeSubCost(5.75,0,0);
+      document.getElementById("Iced_sub_cost").textContent = "$" +computeSubCost(5.75,0,0);
     }
     else{
       alert("Please select a drink");
