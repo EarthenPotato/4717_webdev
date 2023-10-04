@@ -30,37 +30,45 @@ function computeSubCost(Cafe_au_Lait_price,Iced_Cappuccino_price,Just_Java_price
   Iced_Cappuccino_cost = Iced_Cappuccino * Iced_Cappuccino_price
 
   sub_cost = Java_cost + Cafe_au_Lait_cost + Iced_Cappuccino_cost
+  
+  return sub_cost
 }
 
-function radio_value(drink){
-  var dom = document.getElementById("myForm")
+function radio_value(drink_name){
+  console.log(drink_name);
+  var dom = document.getElementsByName(drink_name)
+  // console.log(dom)
   
-  for (var index = 0; index < dom.planeButton.length; 
+  for (var index = 0; index < dom.length; 
       index++) {
-    if (dom.planeButton[index].checked) {
-      drink = dom.planeButton[index].value;
+    console.log(index);
+    if (dom[index].checked) {
+      drink = dom[index].value;
       break;
       }}
+    console.log("this is drink",drink)
+
+  switch (drink) {
+    case '1': 
+      price = computeSubCost(0,0,2);
+      console.log(price);
+      break;
+    case '2': 
+      computeSubCost(0,2,0);
+      break; 
+    case '3':
+      computeSubCost(0,3,0);
+      console.log(price);
+      break;    
+    case '4':
+      computeSubCost(4.75,0,0);
+      break; 
+    case '5':
+      computeSubCost(5.75,0,0);
+      break;
+    default:
+      alert("Please select a drink");
+      break;
+  }
 }
 
-switch (drink) {
-  case "1": 
-    price = computeSubCost(0,0,2);
-    console.log(price)
-    break;
-  case "2": 
-    computeSubCost(0,2,0);
-    break; 
-  case "3":
-    computeSubCost(0,3,0);
-    break;    
-  case "4":
-    computeSubCost(4.75,0,0);
-    break; 
-  case "5":
-    computeSubCost(5.75,0,0);
-    break;
-  default:
-    alert("Please select a drink");
-    break;
-}
