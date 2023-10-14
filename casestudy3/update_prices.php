@@ -32,9 +32,30 @@ $password = "javajam";
 $conn = mysqli_connect($host,$username,$password,$dbname);
 
 if(mysqli_connect_errno()){
-    die('connection error:',mysqli_connect_error();)
+    die('connection error:'. mysqli_connect_error());
 }
-echo "connection success";
+
+$sql = "INSERT INTO message (JavaCheck,CafeCheck,IcedCheck,JavaP,CafePS,CafePD,IcedPS,IcedPD)
+        VALUES (?,?,?,?,?,?,?,?)"
+
+$stmt = mysqli_stmt_init($conn)
+if(! mysqli_stmt_prepare($stmt,$sql)){
+   die( mysqli_error($conn));
+}
+
+mysqli_stmt_bind_param($stmt, "ssiiiiii", 
+                        $JavaCheck, 
+                        $CafeCheck, 
+                        $IcedCheck, 
+                        $JavaP, 
+                        $CafePS, 
+                        $CafePD, 
+                        $IcedPS, 
+                        $IcedPD);
+
+mysqli_stmt_execute($stmt);
+
+echo "record saved"
 // for amt later
 // $JavaAmt = filter_input(INPUT_POST, 'JavaAmt', FILTER_VALIDATE_INT);
 // $CafePSAmt = filter_input(INPUT_POST, 'CafePSAmt', FILTER_VALIDATE_INT);
