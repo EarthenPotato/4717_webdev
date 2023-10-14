@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>JavaJam Coffee House</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="update_prices.js"></script>
 </head>
 <body>
     
@@ -25,29 +26,30 @@
         <div class="content">
             <form action="update_prices.php" method="post">
             <table>
-                <!-- comment out to remove title row -->
-                <!-- <tr>
-                    <td><strong>Update Price</strong></td>
-                    <td><strong>Drink</strong></td>
-                    <td><strong>Description/Price</strong></td>
-                </tr> -->
                 <tr>
-                    <td><input type="checkbox" id="myCheckbox" name="checkboxName" value="checkboxValue"></td>
+                    <td><input type="checkbox"  id="javacheck" ></td>
                     <td><strong>Just java</strong></td>
                     <td>Regular house blend, decaffeinated coffee or flavour of the day.<br>
-                        Single $<?php echo $JavaPrice; ?>
+                        <strong>Current Price:</strong> Single $<?php echo $JavaP; ?><br>
+                        Single:$<input type = "textbox" id = "JavaPrice" >
                 </tr>
                 <tr>
-                    <td><input type="checkbox" id="myCheckbox" name="checkboxName" value="checkboxValue"></td>
+                    <td><input type="checkbox"  id="cafecheck" ></td>
                     <td><strong>Cafe au Lait</strong></td>
                     <td>House blended coffe infused into a smooth, steamed milk.<br>
-                        Single $<?php echo $CafePriceSingle; ?> Double $<?php echo $CafePriceDouble; ?>
+                        <strong>Current Price:</strong> Single $<?php echo $CafePS; ?> Double $<?php echo $CafePD; ?><br>
+                        Single:$<input type = 'textbox' style="width: 50px;" id = "cafeSinglePrice"> Double:$<input type = 'textbox' style="width: 50px;" id = "CafeDoublePrice">
                 </tr>
                 <tr>
-                    <td><input type="checkbox" id="myCheckbox" name="checkboxName" value="checkboxValue"></td>
+                    <td><input type="checkbox" id="icedcheck" ></td>
                     <td><strong>Iced Cappuccino</strong></td>
                     <td>Sweetened espresso blended with icy-cold milk and served in a chilled glass.<br>
-                        Singele $<?php echo $IcedSingle; ?> Double $<?php echo $IcedDouble; ?>
+                        <strong>Current Price:</strong>  Single $<?php echo $IcedPS; ?> Double $<?php echo $IcedPD; ?><br>
+                        Single:$<input type = 'textbox' style="width: 50px;" id = "IcedSinglePrice"> Double:$<input type = 'textbox' style="width: 50px;" id = "IcedDoublePrice">
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td><input type = "button" onclick = "changePrice()" value = "Update Price"></td>
                 </tr>
             </table>
             </form>
