@@ -5,23 +5,35 @@ function changePrice(drink, price) {
 
 function checkDrinkCheckboxes() {
     const drinkCheckboxes = document.querySelectorAll('.drinkCheck');
-    const priceInputIds = ['JavaPrice', 'CafeSinglePrice', 'IcedSinglePrice', 'CafeDoublePrice', 'IcedDoublePrice'];
+    const priceInputIds = {
+        javacheck: ['JavaPrice'],
+        cafecheck: ['CafeSinglePrice', 'CafeDoublePrice'],
+        icedcheck: ['IcedSinglePrice', 'IcedDoublePrice'],
+    };
 
-    drinkCheckboxes.forEach((checkbox, index) => {
+    drinkCheckboxes.forEach(checkbox => {
         const checkboxName = checkbox.name;
-        const priceInputId = priceInputIds[index];
-        const priceInputElement = document.getElementById(priceInputId);
+        const priceInputIdsArray = priceInputIds[checkboxName];
         
-        if (priceInputElement) {
-            if (checkbox.checked) {
-                const currentPrice = priceInputElement.value;
-                console.log(`Checkbox "${checkboxName}" is checked. Current Price: $${currentPrice}`);
-            } else {
-                console.log(`Checkbox "${checkboxName}" is unchecked.`);
-            }
+        if (priceInputIdsArray) {
+            priceInputIdsArray.forEach(priceInputId => {
+                const priceInputElement = document.getElementById(priceInputId);
+                if (priceInputElement) {
+                    if (checkbox.checked) {
+                        const currentPrice = priceInputElement.value;
+                        console.log(`Checkbox "${checkboxName}" is checked.${priceInputElement.id} Changed Price: $${currentPrice}`);
+                    } else {
+                        console.log(`Checkbox "${checkboxName}" is unchecked.`);
+                    }
+                } else {
+                    console.log(`Price input element not found for checkbox "${checkboxName}"`);
+                }
+            });
         } else {
-            console.log(`Price input element not found for checkbox "${checkboxName}"`);
+            console.log(`Price input elements not found for checkbox "${checkboxName}"`);
         }
     });
 }
+
+
 
