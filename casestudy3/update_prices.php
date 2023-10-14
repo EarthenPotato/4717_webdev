@@ -1,32 +1,20 @@
 <?php
-@$dbcnx = new mysqli('localhost','javajam','javajam','javajam');
 
-if ($dbcnx->connect_error){
-	echo "Database is not online"; 
-	exit;
-	}
 
-if (!$dbcnx->select_db ("javajam"))
-	exit("<p>Unable to locate the javajam database</p>");
+$JavaCheck = $_POST['javacheck'];
+$CafeCheck = $_POST['cafecheck'];
+$IcedCheck = $_POST['icedcheck'];
 
-    // // create short variable names
-    // $JavaP = $_POST['JavaP'];
-    // $JavaAmt = $_POST['JavaAmt'];
-    // $CafePS = $_POST['CafePS'];
-    // $CafePSAmt = $_POST['CafePSAmt'];
-    // $CafePD = $_POST['CafePD'];
-    // $CafePDAmt = $_POST['CafePDAmt'];
-    // $IcedPS = $_POST['IcedPS'];
-    // $IcedPSAmt = $_POST['IcedPSAmt'];
-    // $IcedPD = $_POST['IcedPD'];
-    // $IcedPDAmt = $_POST['IcedPDAmt'];
+$JavaP = $_POST['JavaPrice'];
+$CafePS = $_POST['CafeSinglePrice'];
+$CafePD = $_POST['CafeDoublePrice'];
+$IcedPS = $_POST['IcedSinglePrice'];
+$IcedPD = $_POST['IcedDoublePrice'];
 
-function updatePrice($dbcnx, $name, $price) {
-    
-    $query = "UPDATE prices SET price = $price WHERE name = '$name'";
-    $result = $dbcnx->query($query);
-    if (!$result) {
-        echo "<p>Error updating price.</p>";
-    }
-}
+$JavaAmt = $_POST['JavaAmt'];
+$CafePSAmt = $_POST['CafePSAmt'];
+$CafePDAmt = $_POST['CafePDAmt'];
+$IcedPSAmt = $_POST['IcedPSAmt'];
+$IcedPDAmt = $_POST['IcedPDAmt'];
 
+var_dump($JavaCheck,$CafeCheck,$IcedCheck,$JavaP,$CafePS,$CafePD,$IcedPS,$IcedPD)
