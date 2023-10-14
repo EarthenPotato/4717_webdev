@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>JavaJam Coffee House</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_admin.css">
     <script type="text/javascript" src="update_prices.js"></script>
 </head>
 <body>
@@ -31,33 +31,33 @@
                     <td><strong>Just Java</strong></td>
                     <td>Regular house blend, decaffeinated coffee or flavour of the day.<br>
                         <strong>Current Price:</strong> Single $<?php echo $JavaP; ?><br>
-                        <label style = "text-align: left; margin-left: 0px; margin-right: 0px; margin-top: 2px; margin-bottom: 0px;">Single:</label>
-                        <label style = "text-align: right; margin-left: -2px; margin-right: 0px; margin-top: -17px; margin-bottom: 0px;">$</label>
-                        <input type = "textbox" id = "JavaPrice" style="text-align: left; width: 50px;">
+                        <label class= "label_1">Single:</label>
+                        <label class= "label_2">$</label>
+                        <input type = "text" style="width: 50px;" id = "JavaPrice">
                 </tr>
                 <tr>
                     <td><input type="checkbox" class = "drinkCheck" name="cafecheck" ></td>
                     <td><strong>Cafe au Lait</strong></td>
                     <td>House blended coffe infused into a smooth, steamed milk.<br>
                         <strong>Current Price:</strong> Single $<?php echo $CafePS; ?> Double $<?php echo $CafePD; ?><br>
-                        <label style = "text-align: left; margin-left: 0px; margin-right: 0px; margin-top: 2px; margin-bottom: 0px;">Single:</label>
-                        <label style = "text-align: right; margin-left: -2px; margin-right: 0px; margin-top: -17px; margin-bottom: 0px;">$</label>
-                        <input type = 'textbox' style="width: 50px;" id = "cafeSinglePrice">
-                        <label style = "text-align: left; margin-left: 0px; margin-right: 0px; margin-top: 2px; margin-bottom: 0px;">Double:</label>
-                        <label style = "text-align: right; margin-left: -2px; margin-right: 0px; margin-top: -17px; margin-bottom: 0px;">$</label>
-                        <input type = 'textbox' style="width: 50px;" id = "CafeDoublePrice">
+                        <label class= "label_1">Single:</label>
+                        <label class= "label_2">$</label>
+                        <input type = 'text' style="width: 50px;" id = "CafeSinglePrice">
+                        <label class= "label_1">Double:</label>
+                        <label class= "label_2">$</label>
+                        <input type = 'text' style="width: 50px;" id = "CafeDoublePrice">
                 </tr>
                 <tr>
                     <td><input type="checkbox" class = "drinkCheck" name="icedcheck" ></td>
                     <td><strong>Iced Cappuccino</strong></td>
                     <td>Sweetened espresso blended with icy-cold milk and served in a chilled glass.<br>
                         <strong>Current Price:</strong>  Single $<?php echo $IcedPS; ?> Double $<?php echo $IcedPD; ?><br>
-                        <label style = "text-align: left; margin-left: 0px; margin-right: 0px; margin-top: 2px; margin-bottom: 0px;">Single:</label>
-                        <label style = "text-align: right; margin-left: -2px; margin-right: 0px; margin-top: -17px; margin-bottom: 0px;">$</label>
-                        <input type = 'textbox' style="width: 50px;" id = "IcedSinglePrice">
-                        <label style = "text-align: left; margin-left: 0px; margin-right: 0px; margin-top: 2px; margin-bottom: 0px;">Double:</label>
-                        <label style = "text-align: right; margin-left: -2px; margin-right: 0px; margin-top: -17px; margin-bottom: 0px;">$</label>
-                        <input type = 'textbox' style="width: 50px;" id = "IcedDoublePrice">
+                        <label class= "label_1">Single:</label>
+                        <label class= "label_2">$</label>
+                        <input type = 'text' style="width: 50px;" id = "IcedSinglePrice">
+                        <label class= "label_1">Double:</label>
+                        <label class= "label_2">$</label>
+                        <input type = 'text' style="width: 50px;" id = "IcedDoublePrice">
                 </tr>
                 <tr>
                     <td colspan="2"></td>
@@ -70,7 +70,7 @@
         </div>
         <footer>
             <small><i>Copyright &copy; 2023 JavaJam Coffee House<br>
-            <a href="mailto: qinbo@jiang.com">qinbo@jiang.com</a></i><br>
+            <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com"</a></i><br>
             <a href="admin.html">Admin</a></small>
         </footer>
     </div>
