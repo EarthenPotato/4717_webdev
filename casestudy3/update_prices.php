@@ -12,7 +12,7 @@ $IcedPS = filter_input(INPUT_POST, 'IcedSinglePrice', FILTER_VALIDATE_FLOAT);
 $IcedPD = filter_input(INPUT_POST, 'IcedDoublePrice', FILTER_VALIDATE_FLOAT);
 
 
-var_dump($JavaCheck,$CafeCheck,$IcedCheck,$JavaP,$CafePS,$CafePD,$IcedPS,$IcedPD)
+// var_dump($JavaCheck,$CafeCheck,$IcedCheck,$JavaP,$CafePS,$CafePD,$IcedPS,$IcedPD);
 
 if($JavaCheck){
 
@@ -24,8 +24,17 @@ if($IcedCheck){
     
 }
 
+$host = "localhost";
+$dbname = "javajam";
+$username = "javajam";
+$password = "javajam";
 
+$conn = mysqli_connect($host,$username,$password,$dbname);
 
+if(mysqli_connect_errno()){
+    die('connection error:',mysqli_connect_error();)
+}
+echo "connection success";
 // for amt later
 // $JavaAmt = filter_input(INPUT_POST, 'JavaAmt', FILTER_VALIDATE_INT);
 // $CafePSAmt = filter_input(INPUT_POST, 'CafePSAmt', FILTER_VALIDATE_INT);
