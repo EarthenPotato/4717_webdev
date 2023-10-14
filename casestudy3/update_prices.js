@@ -3,20 +3,25 @@ function changePrice(drink, price) {
     // console.log(drink,price)
 }
 
-
 function checkDrinkCheckboxes() {
-    var checkboxes = document.querySelectorAll('.drinkCheck');
-    var checkedNames = [];
+    const drinkCheckboxes = document.querySelectorAll('.drinkCheck');
+    const priceInputIds = ['JavaPrice', 'CafeSinglePrice', 'IcedSinglePrice', 'CafeDoublePrice', 'IcedDoublePrice'];
 
-    checkboxes.forEach(function (checkbox) {
-        if (checkbox.checked) {
-            checkedNames.push(checkbox.name);
+    drinkCheckboxes.forEach((checkbox, index) => {
+        const checkboxName = checkbox.name;
+        const priceInputId = priceInputIds[index];
+        const priceInputElement = document.getElementById(priceInputId);
+        
+        if (priceInputElement) {
+            if (checkbox.checked) {
+                const currentPrice = priceInputElement.value;
+                console.log(`Checkbox "${checkboxName}" is checked. Current Price: $${currentPrice}`);
+            } else {
+                console.log(`Checkbox "${checkboxName}" is unchecked.`);
+            }
+        } else {
+            console.log(`Price input element not found for checkbox "${checkboxName}"`);
         }
     });
-
-    if (checkedNames.length > 0) {
-        console.log('Checked checkbox names: ' + checkedNames.join(', '));
-    } else {
-        console.log('No checkboxes are checked.');
-    }
 }
+
