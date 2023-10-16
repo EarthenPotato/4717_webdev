@@ -127,7 +127,7 @@ if ($result->num_rows > 0) {
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="admin.html">Updates</a></li>
+                        <li><a href="admin.php">Updates</a></li>
                         <li><a href="report.html">Sales</a></li>
                     </ul>
                 </nav>

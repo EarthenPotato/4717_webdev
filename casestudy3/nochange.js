@@ -40,8 +40,8 @@ function computeSubCost(Iced_Cappuccino_price,Cafe_au_Lait_price,Just_Java_price
   return sub_cost.toFixed(2)
 }
 
-function radio_value(drink_name,Price){
-  console.log(drink_name,Price);
+function radio_value(drink_name){
+  console.log(drink_name);
   var dom = document.getElementsByName(drink_name)
   
   for (var index = 0; index < dom.length; index++) {
@@ -54,23 +54,18 @@ function radio_value(drink_name,Price){
 
   switch (drink) {
     case '1': 
-      computeSubCost(0,0,Price);
       Java_btn = 0
       break;
     case '2': 
-      computeSubCost(0,Price,0);
       Cafe_btn = 0
       break; 
     case '3':
-      computeSubCost(0,Price,0);
       Cafe_btn = 1
       break;    
     case '4':
-      computeSubCost(Price,0,0);
       Iced_btn = 0
       break; 
     case '5':
-      computeSubCost(Price,0,0);
       Iced_btn = 1
       break;
     default:
