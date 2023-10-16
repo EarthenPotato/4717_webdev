@@ -40,8 +40,8 @@ function computeSubCost(Iced_Cappuccino_price,Cafe_au_Lait_price,Just_Java_price
   return sub_cost.toFixed(2)
 }
 
-function radio_value(drink_name){
-  console.log(drink_name);
+function radio_value(drink_name,Price){
+  console.log(drink_name,Price);
   var dom = document.getElementsByName(drink_name)
   
   for (var index = 0; index < dom.length; index++) {
@@ -54,23 +54,23 @@ function radio_value(drink_name){
 
   switch (drink) {
     case '1': 
-      computeSubCost(0,0,2);
+      computeSubCost(0,0,Price);
       Java_btn = 0
       break;
     case '2': 
-      computeSubCost(0,2,0);
+      computeSubCost(0,Price,0);
       Cafe_btn = 0
       break; 
     case '3':
-      computeSubCost(0,3,0);
+      computeSubCost(0,Price,0);
       Cafe_btn = 1
       break;    
     case '4':
-      computeSubCost(4.75,0,0);
+      computeSubCost(Price,0,0);
       Iced_btn = 0
       break; 
     case '5':
-      computeSubCost(5.75,0,0);
+      computeSubCost(Price,0,0);
       Iced_btn = 1
       break;
     default:
@@ -80,10 +80,10 @@ function radio_value(drink_name){
   return drink 
 }
 
-function update_sub_price(drink_name){
+function update_sub_price(drink_name,PriceS,PriceD){
   if (drink_name == 'Java'){
     if (Java_btn == 0){
-      document.getElementById("Java_sub_cost").textContent = "$" +computeSubCost(0,0,2);
+      document.getElementById("Java_sub_cost").textContent = "$" +computeSubCost(0,0,PriceS);
     }
     else{
       alert("Please select a drink");
@@ -91,10 +91,10 @@ function update_sub_price(drink_name){
   }
   if (drink_name == 'Cafe'){
     if (Cafe_btn == 0){
-      document.getElementById("Cafe_sub_cost").textContent = "$" +computeSubCost(0,2,0);
+      document.getElementById("Cafe_sub_cost").textContent = "$" +computeSubCost(0,PriceS,0);
     }
     else if(Cafe_btn == 1){
-      document.getElementById("Cafe_sub_cost").textContent = "$" +computeSubCost(0,3,0);
+      document.getElementById("Cafe_sub_cost").textContent = "$" +computeSubCost(0,PriceD,0);
     }
     else{
       alert("Please select a drink");
@@ -102,10 +102,10 @@ function update_sub_price(drink_name){
   }
   if (drink_name == 'Iced'){
     if (Iced_btn == 0){
-      document.getElementById("Iced_sub_cost").textContent = "$" +computeSubCost(4.75,0,0);
+      document.getElementById("Iced_sub_cost").textContent = "$" +computeSubCost(PriceS,0,0);
     }
     else if (Iced_btn == 1){
-      document.getElementById("Iced_sub_cost").textContent = "$" +computeSubCost(5.75,0,0);
+      document.getElementById("Iced_sub_cost").textContent = "$" +computeSubCost(PriceD,0,0);
     }
     else{
       alert("Please select a drink");

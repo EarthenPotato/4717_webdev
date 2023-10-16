@@ -1,3 +1,58 @@
+<?php
+$host = "localhost";
+$dbname = "javajam";
+$username = "javajam";
+$password = "javajam";
+
+$conn = mysqli_connect($host,$username,$password,$dbname);
+
+if(mysqli_connect_errno()){
+    die('connection error:'. mysqli_connect_error());
+}
+
+
+$sql = "SELECT JavaP FROM javajamprice LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $JavaPDB = $row['JavaP'];
+}
+
+$sql = "SELECT CafePS FROM javajamprice LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $CafePSDB = $row['CafePS'];
+}
+
+$sql = "SELECT CafePD FROM javajamprice LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $CafePDDB = $row['CafePD'];
+}
+
+$sql = "SELECT IcedPS FROM javajamprice LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $IcedPSDB = $row['IcedPS'];
+}
+
+$sql = "SELECT IcedPD FROM javajamprice LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $IcedPDDB = $row['IcedPD'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,23 +83,23 @@
                 <tr>
                     <td><strong>Just Java</strong></td>
                     <td>Regular house blend, decaffeinated coffee or flavour of the day.<br>
-                        <strong><label class="inline-text"><input type = "radio"  name = "Java" value = "1"  onclick = "radio_value('Java')" checked class="inline-button"/> Single $2.00 </label> 
+                        <strong><label class="inline-text"><input type = "radio"  name = "Java" value = "1"  onclick = "radio_value('Java')" checked class="inline-button"/> Single $<?php echo $JavaPDB; ?> </label> 
                         <td> <input type = "number"  id = "Java_num"  style="width: 100px;" onchange="update_sub_price('Java')" min = "0"/> </td>
                         <td id = "Java_sub_cost">$0.00</td>
                 </tr>
                 <tr>
                     <td><strong>Cafe au Lait</strong></td>
                     <td>House blended coffe infused into a smooth, steamed milk.<br>
-                        <strong><label class="inline-text"> <input type = "radio"  name = "Cafe" value = "2" onclick = "radio_value('Cafe')" checked  class="inline-button" /> Single $2.00 </label> 
-                        <label class="inline-text"> <input type = "radio"  name = "Cafe" value = "3" onclick = "radio_value('Cafe')" class="inline-button"/> Double $3.00 </label> </strong>
+                        <strong><label class="inline-text"> <input type = "radio"  name = "Cafe" value = "2" onclick = "radio_value('Cafe')" checked  class="inline-button" /> Single $<?php echo $CafePSDB; ?> </label> 
+                        <label class="inline-text"> <input type = "radio"  name = "Cafe" value = "3" onclick = "radio_value('Cafe')" class="inline-button"/> Double $<?php echo $CafePDDB; ?> </label> </strong>
                     <td> <input type = "number"  id = "Cafe_num" style="width: 100px;" onchange="update_sub_price('Cafe')" min = "0"/> </td>
                     <td id = "Cafe_sub_cost">$0.00</td>
                 </tr>
                 <tr>
                     <td><strong>Iced Cappuccino</strong></td>
                     <td>Sweetened espresso blended with icy-cold milk and served in a chilled glass.<br>
-                        <strong><label class="inline-text"> <input type = "radio"  name = "Iced" value = "4" onclick = "radio_value('Iced')" checked  class="inline-button"/> Single $4.75 </label> 
-                        <label class="inline-text"> <input type = "radio"  name = "Iced" value = "5" onclick = "radio_value('Iced')" class="inline-button"/> Double $5.75 </label> </strong>
+                        <strong><label class="inline-text"> <input type = "radio"  name = "Iced" value = "4" onclick = "radio_value('Iced')" checked  class="inline-button"/> Single $<?php echo $IcedPSDB; ?>  </label> 
+                        <label class="inline-text"> <input type = "radio"  name = "Iced" value = "5" onclick = "radio_value('Iced')" class="inline-button"/> Double $<?php echo $IcedPDDB; ?>  </label> </strong>
                     <td> <input type = "number"  id = "Iced_num" style="width: 100px;" onchange="update_sub_price('Iced')" min = "0"/> </td>
                     <td id = "Iced_sub_cost">$0.00</td>
 
