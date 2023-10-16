@@ -84,6 +84,7 @@ function update_sub_price(drink_name,PriceS,PriceD){
   if (drink_name == 'Java'){
     if (Java_btn == 0){
       document.getElementById("Java_sub_cost").textContent = "$" +computeSubCost(0,0,PriceS);
+      // alert("This is single price", PriceS);
     }
     else{
       alert("Please select a drink");
