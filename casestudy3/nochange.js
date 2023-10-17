@@ -51,7 +51,7 @@ function radio_value(drink_name){
       break;
       }}
     console.log("this is drink",drink)
-
+  
   switch (drink) {
     case '1': 
       Java_btn = 0
