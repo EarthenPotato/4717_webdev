@@ -153,7 +153,7 @@ if (isset($_POST['submit'])) {
                     <td colspan="2"></td>
                     <td style = "text-align: center;">
                         <!-- <strong>Total Price</strong> -->
-                        <input type = "submit" name = "submit"value = "Total Cost"/>
+                        <input type = "submit" name = "submit"value = "Check-out"/>
                     </td>   
                     <td id = "Total_Price">
                         $0.00
