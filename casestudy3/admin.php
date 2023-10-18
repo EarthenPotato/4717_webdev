@@ -32,11 +32,11 @@ if($JavaCheck){
     die( mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, "i", $JavaP);
+    mysqli_stmt_bind_param($stmt, "d", $JavaP);
 
     mysqli_stmt_execute($stmt);
 
-    // echo "Java saved";
+    echo "$JavaP";
 }
 
 if($CafeCheck){
@@ -47,7 +47,7 @@ if($CafeCheck){
     die( mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, "ii", $CafePS, $CafePD,);
+    mysqli_stmt_bind_param($stmt, "dd", $CafePS, $CafePD,);
 
     mysqli_stmt_execute($stmt);
 
@@ -61,7 +61,7 @@ if($IcedCheck){
     die( mysqli_error($conn));
     }
 
-    mysqli_stmt_bind_param($stmt, "ii", $IcedPS, $IcedPD);
+    mysqli_stmt_bind_param($stmt, "dd", $IcedPS, $IcedPD);
 
     mysqli_stmt_execute($stmt);
 
@@ -144,7 +144,7 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong> Single $<?php echo $JavaPDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = "text" style="width: 50px;" id = "JavaPrice" name = "JavaPrice">
+                        <input type = "number" style="width: 50px;" id = "JavaPrice" name = "JavaPrice" min = 0>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class = "drinkCheck" name="cafecheck" ></td>
@@ -153,10 +153,10 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong> Single $<?php echo $CafePSDB; ?> Double $<?php echo $CafePDDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'text' style="width: 50px;" id = "CafeSinglePrice" name = "CafeSinglePrice">
+                        <input type = 'number' style="width: 50px;" id = "CafeSinglePrice" name = "CafeSinglePrice" min = 0>
                         <label class= "label_1">Double:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'text' style="width: 50px;" id = "CafeDoublePrice" name = "CafeDoublePrice">
+                        <input type = 'number' style="width: 50px;" id = "CafeDoublePrice" name = "CafeDoublePrice" min = 0>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class = "drinkCheck" name="icedcheck" ></td>
@@ -165,10 +165,10 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong>  Single $<?php echo $IcedPSDB; ?> Double $<?php echo $IcedPDDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'text' style="width: 50px;" id = "IcedSinglePrice" name = "IcedSinglePrice">
+                        <input type = 'number' style="width: 50px;" id = "IcedSinglePrice" name = "IcedSinglePrice" min = 0>
                         <label class= "label_1">Double:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'text' style="width: 50px;" id = "IcedDoublePrice"  name = "IcedDoublePrice">
+                        <input type = 'number' style="width: 50px;" id = "IcedDoublePrice"  name = "IcedDoublePrice" min = 0>
                 </tr>
                 <tr>
                     <td colspan="2"></td>
