@@ -181,7 +181,7 @@ if ($result->num_rows > 0) {
         </div>
         <footer>
             <small><i>Copyright &copy; 2023 JavaJam Coffee House<br>
-            <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com"</a></i><br>
+            <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com</a></i><br>
             <a href="admin.html">Admin</a></small>
         </footer>
     </div>

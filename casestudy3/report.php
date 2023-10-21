@@ -150,7 +150,7 @@ if ($JavaTS > $CafeTTS && $JavaTS > $IcedTTS) {
         </div>
         <footer>
             <small><i>Copyright &copy; 2023 JavaJam Coffee House<br>
-            <a href="mailto: qinbo@jiang.com">qinbo@jiang.com</a></i><br>
+            <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com</a></i><br>
             <a href="admin.html">Admin</a></small>
         </footer>
     </div>
