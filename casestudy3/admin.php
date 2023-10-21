@@ -144,7 +144,7 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong> Single $<?php echo $JavaPDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = "number" style="width: 50px;" id = "JavaPrice" name = "JavaPrice" min = 0>
+                        <input type = "number" style="width: 80px;" id = "JavaPrice" name = "JavaPrice" min = 0>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class = "drinkCheck" name="cafecheck" ></td>
@@ -153,10 +153,10 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong> Single $<?php echo $CafePSDB; ?> Double $<?php echo $CafePDDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' style="width: 50px;" id = "CafeSinglePrice" name = "CafeSinglePrice" min = 0>
+                        <input type = 'number' style="width: 80px;" id = "CafeSinglePrice" name = "CafeSinglePrice" min = 0>
                         <label class= "label_1">Double:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' style="width: 50px;" id = "CafeDoublePrice" name = "CafeDoublePrice" min = 0>
+                        <input type = 'number' style="width: 80px;" id = "CafeDoublePrice" name = "CafeDoublePrice" min = 0>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class = "drinkCheck" name="icedcheck" ></td>
@@ -165,10 +165,10 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong>  Single $<?php echo $IcedPSDB; ?> Double $<?php echo $IcedPDDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' style="width: 50px;" id = "IcedSinglePrice" name = "IcedSinglePrice" min = 0>
+                        <input type = 'number' style="width: 80px;" id = "IcedSinglePrice" name = "IcedSinglePrice" min = 0>
                         <label class= "label_1">Double:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' style="width: 50px;" id = "IcedDoublePrice"  name = "IcedDoublePrice" min = 0>
+                        <input type = 'number' style="width: 80px;" id = "IcedDoublePrice"  name = "IcedDoublePrice" min = 0>
                 </tr>
                 <tr>
                     <td colspan="2"></td>

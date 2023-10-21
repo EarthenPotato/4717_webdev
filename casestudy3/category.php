@@ -145,6 +145,7 @@ if ($JavaTS > $CafeTTS && $JavaTS > $IcedTTS) {
             </div>
         <div id="rightcolumn">
         <div class="content">
+            <h3>Category Sales Report</h3>
             <table>
                 <tr>
                     <th>Category</th>
@@ -174,9 +175,7 @@ if ($JavaTS > $CafeTTS && $JavaTS > $IcedTTS) {
             <P>
             Popular option of best selling product: <?php echo $popular ?>
             </P>
-
         </div>
-
         </div>
         <footer>
             <small><i>Copyright &copy; 2023 JavaJam Coffee House<br>

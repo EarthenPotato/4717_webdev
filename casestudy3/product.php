@@ -137,6 +137,7 @@ if ($JavaTS > $CafeTTS && $JavaTS > $IcedTTS) {
             </div>
         <div id="rightcolumn">
         <div class="content">
+            <h3>Product Sales Report</h3>
             <table>
                 <tr>
                     <th>Product</th>

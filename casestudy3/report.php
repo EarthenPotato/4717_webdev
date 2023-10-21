@@ -136,22 +136,18 @@ if ($JavaTS > $CafeTTS && $JavaTS > $IcedTTS) {
             </div>
         <div id="rightcolumn">
         <div class="content">
-
-            <h2>Click to generate daily sales report:</h3>
-            <a href = product.php><button>Product</button><a><p>Total dollar and quantity sales by products</p><br>
-            <a href = category.php><button>Category</button><a><p>Total dollar and quantity sales by categories</p><br>
-            <p>
-            Popular option of best selling product: <?php echo $popular ?>
-            </p>
-            
-
+            <h3>Click to generate daily sales report</h3>
+                <a href = product.php><button class="report-button">Product</button><a>Total dollar and quantity sales by products<br>
+                <a href = category.php><button class="report-button" style="margin-bottom: 10px">Category</button><a>Total dollar and quantity sales by categories<br>
+                <p>
+                Popular option of best selling product: <?php echo $popular ?>
+                </p>
         </div>
-
         </div>
         <footer>
             <small><i>Copyright &copy; 2023 JavaJam Coffee House<br>
             <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com</a></i><br>
-            <a href="admin.html">Admin</a></small>
+            <a href="admin.php"><button style="margin-top: 5px">Admin</button></a></small>
         </footer>
     </div>
 </body>
