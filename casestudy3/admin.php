@@ -1,15 +1,22 @@
 <?php
 
+// echo '<pre>';
+// print_r($_POST);
+// echo '</pre>';
+
+ini_set('display_errors', 0);
 
 $JavaCheck = filter_input(INPUT_POST,'javacheck',FILTER_VALIDATE_BOOL);
 $CafeCheck = filter_input(INPUT_POST,'cafecheck',FILTER_VALIDATE_BOOL);
 $IcedCheck = filter_input(INPUT_POST,'icedcheck',FILTER_VALIDATE_BOOL);
 
-$JavaP = filter_input(INPUT_POST, 'JavaPrice', FILTER_VALIDATE_FLOAT);
-$CafePS = filter_input(INPUT_POST, 'CafeSinglePrice', FILTER_VALIDATE_FLOAT);
-$CafePD = filter_input(INPUT_POST, 'CafeDoublePrice', FILTER_VALIDATE_FLOAT);
-$IcedPS = filter_input(INPUT_POST, 'IcedSinglePrice', FILTER_VALIDATE_FLOAT);
-$IcedPD = filter_input(INPUT_POST, 'IcedDoublePrice', FILTER_VALIDATE_FLOAT);
+$JavaP = $_POST['JavaPrice'] ?? 0;
+$CafePS = $_POST['CafeSinglePrice'] ?? 0;
+$CafePD = $_POST['CafeDoublePrice'] ?? 0;
+$IcedPS = $_POST['IcedSinglePrice'] ?? 0;
+$IcedPD = $_POST['IcedDoublePrice'] ?? 0;
+
+
 
 $host = "localhost";
 $dbname = "javajam";
@@ -21,8 +28,6 @@ $conn = mysqli_connect($host,$username,$password,$dbname);
 if(mysqli_connect_errno()){
     die('connection error:'. mysqli_connect_error());
 }
-
-
 
 if($JavaCheck){
     $sql = "UPDATE javajamprice SET JavaP = ?";
@@ -36,7 +41,7 @@ if($JavaCheck){
 
     mysqli_stmt_execute($stmt);
 
-    echo "$JavaP";
+    // echo "$JavaP";
 }
 
 if($CafeCheck){
@@ -144,7 +149,7 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong> Single $<?php echo $JavaPDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = "number" style="width: 80px;" id = "JavaPrice" name = "JavaPrice" min = 0>
+                        <input type = "number" step = "0.01" style="width: 80px;" id = "JavaPrice" name = "JavaPrice" min = 0>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class = "drinkCheck" name="cafecheck" ></td>
@@ -153,10 +158,10 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong> Single $<?php echo $CafePSDB; ?> Double $<?php echo $CafePDDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' style="width: 80px;" id = "CafeSinglePrice" name = "CafeSinglePrice" min = 0>
+                        <input type = 'number' step = "0.01" style="width: 80px;" id = "CafeSinglePrice" name = "CafeSinglePrice" min = 0>
                         <label class= "label_1">Double:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' style="width: 80px;" id = "CafeDoublePrice" name = "CafeDoublePrice" min = 0>
+                        <input type = 'number' step = "0.01" style="width: 80px;" id = "CafeDoublePrice" name = "CafeDoublePrice" min = 0>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class = "drinkCheck" name="icedcheck" ></td>
@@ -165,14 +170,14 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong>  Single $<?php echo $IcedPSDB; ?> Double $<?php echo $IcedPDDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' style="width: 80px;" id = "IcedSinglePrice" name = "IcedSinglePrice" min = 0>
+                        <input type = 'number' step = "0.01" style="width: 80px;" id = "IcedSinglePrice" name = "IcedSinglePrice" min = 0>
                         <label class= "label_1">Double:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' style="width: 80px;" id = "IcedDoublePrice"  name = "IcedDoublePrice" min = 0>
+                        <input type = 'number' step = "0.01" style="width: 80px;" id = "IcedDoublePrice"  name = "IcedDoublePrice" min = 0>
                 </tr>
                 <tr>
                     <td colspan="2"></td>
-                    <td><button onclick="location.href='admin.php'">Update Price</button></td>
+                    <td><button type="submit" style="width: 100px; float: right;">Update Price</button></td>
                 </tr>
             </table>
             </form>
@@ -181,8 +186,7 @@ if ($result->num_rows > 0) {
         </div>
         <footer>
             <small><i>Copyright &copy; 2023 JavaJam Coffee House<br>
-            <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com</a></i><br>
-            <a href="admin.html">Admin</a></small>
+            <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com</a></i><br></small>
         </footer>
     </div>
 </body>
