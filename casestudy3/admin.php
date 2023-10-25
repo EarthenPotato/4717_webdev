@@ -30,6 +30,9 @@ if(mysqli_connect_errno()){
 }
 
 if($JavaCheck){
+    if ($JavaP == null) {
+        $JavaP = 2.00;
+    }
     $sql = "UPDATE javajamprice SET JavaP = ?";
 
     $stmt = mysqli_stmt_init($conn);
@@ -45,6 +48,12 @@ if($JavaCheck){
 }
 
 if($CafeCheck){
+    if($CafePS == null){
+        $CafePS = 2.00;
+    }
+    if($CafePD == null){
+        $CafePD = 3.00;
+    }
     $sql = "UPDATE javajamprice SET CafePS = ?, CafePD = ?";
 
     $stmt = mysqli_stmt_init($conn);
@@ -59,6 +68,12 @@ if($CafeCheck){
     // echo "<br>Cafe saved";
 }
 if($IcedCheck){
+    if($IcedPS == null){
+        $IcedPS = 4.75;
+    }
+    if($IcedPD == null){
+        $IcedPD = 5.75;
+    }
     $sql = "UPDATE javajamprice SET IcedPS = ?, IcedPD = ?";
 
     $stmt = mysqli_stmt_init($conn);
@@ -138,7 +153,7 @@ if ($result->num_rows > 0) {
                 </nav>
             </div>
         <div id="rightcolumn">
-        <h3>Click to update product prices:</h3>
+        <h3>Select checkboxs     to update product prices:</h3>
         <div class="content">
             <form action="admin.php" method="post">
             <table>
@@ -149,7 +164,7 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong> Single $<?php echo $JavaPDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = "number" step = "0.01" style="width: 80px;" id = "JavaPrice" name = "JavaPrice" min = 0>
+                        <input type = "number" step = "0.01" style="width: 80px;"  id = "JavaPrice" name = "JavaPrice" min = 0.01>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class = "drinkCheck" name="cafecheck" ></td>
@@ -158,10 +173,10 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong> Single $<?php echo $CafePSDB; ?> Double $<?php echo $CafePDDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' step = "0.01" style="width: 80px;" id = "CafeSinglePrice" name = "CafeSinglePrice" min = 0>
+                        <input type = 'number' step = "0.01" style="width: 80px;"  id = "CafeSinglePrice" name = "CafeSinglePrice" min = 0.01>
                         <label class= "label_1">Double:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' step = "0.01" style="width: 80px;" id = "CafeDoublePrice" name = "CafeDoublePrice" min = 0>
+                        <input type = 'number' step = "0.01" style="width: 80px;"  id = "CafeDoublePrice" name = "CafeDoublePrice" min = 0.01>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class = "drinkCheck" name="icedcheck" ></td>
@@ -170,14 +185,15 @@ if ($result->num_rows > 0) {
                         <strong>Current Price:</strong>  Single $<?php echo $IcedPSDB; ?> Double $<?php echo $IcedPDDB; ?><br>
                         <label class= "label_1">Single:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' step = "0.01" style="width: 80px;" id = "IcedSinglePrice" name = "IcedSinglePrice" min = 0>
+                        <input type = 'number' step = "0.01" style="width: 80px;"  id = "IcedSinglePrice" name = "IcedSinglePrice" min = 0.01>
                         <label class= "label_1">Double:</label>
                         <label class= "label_2">$</label>
-                        <input type = 'number' step = "0.01" style="width: 80px;" id = "IcedDoublePrice"  name = "IcedDoublePrice" min = 0>
+                        <input type = 'number' step = "0.01" style="width: 80px;"  id = "IcedDoublePrice"  name = "IcedDoublePrice" min = 0.01>
                 </tr>
                 <tr>
                     <td colspan="2"></td>
-                    <td><button type="submit" style="width: 100px; float: right;">Update Price</button></td>
+                    <!-- <td><button style="width: 100px; float: right;" onclick="location.href='admin.php'">Update Price</button></td> -->
+                    <td><button type="submit" style="width: 100px; float: right;" onclick="href='admin.php'">Update Price</button></td>
                 </tr>
             </table>
             </form>
