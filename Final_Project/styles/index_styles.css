@@ -13,7 +13,7 @@ body {
 /* Style for the main wrapper */
 #wrapper {
     display: flex;
-    width: 80%;
+    width: auto;
     margin: 0 auto;
 }
 
@@ -32,9 +32,13 @@ header img {
 /* Style for the left column */
 #leftcolumn {
     width: 250px;
+    flex: 0 0 250px;
     background-color: #333;
     color: #fff;
     padding: 10px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
 #leftcolumn button {
@@ -66,6 +70,7 @@ header img {
     display: block;
     padding: 10px;
 }
+
 
 /* Style for the dropdown content */
 .dropdown-content {
@@ -108,7 +113,9 @@ footer {
     background-color: #333;
     padding: 10px;
     text-align: center;
-    clear: both; /* Clear the float to ensure the footer is below other content */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 footer small {
@@ -119,3 +126,4 @@ footer a {
     color: #fff;
     text-decoration: none;
 }
+

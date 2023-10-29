@@ -35,6 +35,9 @@ header img {
     background-color: #333;
     color: #fff;
     padding: 10px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
 #leftcolumn button {
@@ -94,7 +97,8 @@ header img {
 #rightcolumn {
     flex: 1;
     padding: 10px;
-    width: 90%;
+    width: 80%;
+    box-sizing: border-box;
 }
 
 /* Style for the content inside the right column */
@@ -130,7 +134,9 @@ footer {
     background-color: #333;
     padding: 10px;
     text-align: center;
-    clear: both; /* Clear the float to ensure the footer is below other content */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 footer small {
@@ -141,4 +147,5 @@ footer a {
     color: #fff;
     text-decoration: none;
 }
+
 
