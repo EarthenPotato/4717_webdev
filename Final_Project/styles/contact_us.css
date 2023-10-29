@@ -11,14 +11,21 @@ html {
 body {
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Style for the main wrapper */
 #wrapper {
     display: flex;
+    flex: 1;
+    flex-direction: row;
     width: auto;
-    margin: 0 auto;
-    padding: 0 auto;
+    margin: 0;
+    position: relative;
+    min-height: 100vh;
 }
 
 /* Style for the header */
@@ -36,20 +43,20 @@ header img {
 h3 {
     margin-top: 40px;
     margin-bottom: 20px;
-    margin-left: 60px;
+    margin-left: 40px;
     font-size: 2.0em;
 }
 
 h4 {
     margin-top: 40px;
     margin-bottom: 10px;
-    margin-left: 60px;
+    margin-left: 40px;
     font-size: 1.5em;
 }
 
 p {
     max-width: 920px;
-    margin-left: 100px;
+    margin-left: 80px;
     margin-right: 100px;
     line-height: 1.5;
 }
@@ -62,10 +69,11 @@ p {
     color: #fff;
     padding-top: 0px;
     padding-right: 0px;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     height: 100vh;
-    z-index: 2;
+    z-index: 999;
 }
 
 #leftcolumn button {
@@ -137,20 +145,22 @@ p {
     text-decoration: none;
     color: #fff;
 }
-
 .textboxGroup {
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-left: 60px;
+    margin-left: 40px;
     white-space: nowrap;
 }
 
 /* Style for the right column */
 #rightcolumn {
     flex: 1;
-    padding: 0px;
-    width: 100%;
+    padding: 10px;
+    padding-left: 300px;
+    width: 90%;
+    min-height: 100vh;
 }
+
 #rightcolumn button {
     background-color: #3498db;
     color: #fff;
@@ -203,8 +213,8 @@ footer {
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
-    position: fixed;
-    bottom: 0;
+    margin-top: auto;
+    bottom: 0px;
     width: 100%;
     z-index: 1;
 }
@@ -219,3 +229,4 @@ footer a {
     text-decoration: none;
     padding-left: 270px;
 }
+
