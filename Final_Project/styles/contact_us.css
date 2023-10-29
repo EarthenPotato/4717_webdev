@@ -13,14 +13,15 @@ body {
 /* Style for the main wrapper */
 #wrapper {
     display: flex;
-    width: 80%;
+    width: auto;
     margin: 0 auto;
+    padding: 0 auto;
 }
 
 /* Style for the header */
 header {
     background-color: #333;
-    padding: 10px;
+    padding: 0px;
     text-align: center;
 }
 
@@ -29,12 +30,39 @@ header img {
     height: auto;
 }
 
+h3 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+    font-size: 2.0em;
+}
+
+h4 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 60px;
+    font-size: 1.5em;
+}
+
+p {
+    max-width: 920px;
+    margin-left: 100px;
+    margin-right: 100px;
+    line-height: 1.5;
+}
+
 /* Style for the left column */
 #leftcolumn {
     width: 250px;
+    flex: 0 0 250px;
     background-color: #333;
     color: #fff;
-    padding: 10px;
+    padding-top: 0px;
+    padding-right: 0px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 2;
 }
 
 #leftcolumn button {
@@ -64,21 +92,25 @@ header img {
     text-decoration: none;
     color: #fff;
     display: block;
-    padding: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
+
 
 /* Style for the dropdown content */
 .dropdown-content {
     display: none;
+    margin-top: 0px;
     position: absolute;
     background-color: #444;
-    min-width: 200px;
+    min-width: 280px;
     z-index: 1;
     left: 100%;
     top: 0;
 }
-
 .dropdown-content a {
+    margin-top: 0px;
     padding: 10px;
     color: #fff;
     display: block;
@@ -90,11 +122,35 @@ header img {
     display: block;
 }
 
+/* cart button */
+.cartButton {
+    display: inline-block;
+    width: 210px !important;
+    margin: 20px;
+}
+
+.textboxGroup {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 60px;
+    white-space: nowrap;
+}
+
 /* Style for the right column */
 #rightcolumn {
     flex: 1;
-    padding: 10px;
-    width: 90%;
+    padding: 0px;
+    width: 100%;
+}
+#rightcolumn button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    width: 150px;
+    margin-top: 4px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 /* Style for the content inside the right column */
@@ -102,20 +158,53 @@ header img {
     max-width: 100%;
     height: auto;
 }
+.contactusMessage {
+    text-align: left;
+}
+
+
+input[type=text], select {
+    width: 498px;
+    min-width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+textarea {
+    resize: none;
+    width: 1000px;
+    max-width: 1000px;
+    min-height: 150px;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
 /* Style for the footer */
 footer {
-    background-color: #333;
-    padding: 10px;
+    background-color: #555555;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: center;
-    clear: both; /* Clear the float to ensure the footer is below other content */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 footer small {
     color: #fff;
+    padding-left: 270px;
 }
 
 footer a {
     color: #fff;
     text-decoration: none;
+    padding-left: 270px;
 }
