@@ -20,7 +20,8 @@ body {
 /* Style for the header */
 header {
     background-color: #333;
-    text-align: center;
+    padding: 10px;
+    text-align: left;
 }
 
 header img {
@@ -31,7 +32,6 @@ header img {
 /* Style for the left column */
 #leftcolumn {
     width: 250px;
-    flex: 0 0 250px;
     background-color: #333;
     color: #fff;
     padding: 10px;
@@ -70,7 +70,6 @@ header img {
     padding: 10px;
 }
 
-
 /* Style for the dropdown content */
 .dropdown-content {
     display: none;
@@ -98,7 +97,30 @@ header img {
 #rightcolumn {
     flex: 1;
     padding: 10px;
-    width: 90%;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+/* Style for the content inside the right column */
+.content {
+    text-align: left;
+}
+
+.image-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; 
+}
+
+.image-row a {
+    flex: 0 0 calc(20% );
+    text-decoration: none;
+    display: block;
+}
+
+.image-row img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Style for the content inside the right column */
@@ -125,4 +147,5 @@ footer a {
     color: #fff;
     text-decoration: none;
 }
+
 
