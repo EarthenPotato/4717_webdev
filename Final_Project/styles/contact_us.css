@@ -127,6 +127,11 @@ p {
     display: inline-block;
     width: 210px !important;
     margin: 20px;
+    color: #fff;
+}
+.cartButtonText {
+    text-decoration: none;
+    color: #fff;
 }
 
 .textboxGroup {
@@ -172,6 +177,7 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-family:Arial;
 }
 textarea {
     resize: none;
@@ -184,6 +190,7 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-family:Arial;
 }
 
 /* Style for the footer */
