@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
 }
+html {
+    overflow-y: scroll;
+}
 
 /* Set a background color for the entire page */
 body {
@@ -124,6 +127,7 @@ p {
 
 /* cart button */
 .cartButton {
+    text-decoration: none;
     display: inline-block;
     width: 210px !important;
     margin: 20px;
@@ -199,7 +203,7 @@ footer {
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     z-index: 1;
