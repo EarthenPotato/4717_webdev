@@ -13,7 +13,7 @@ body {
 /* Style for the main wrapper */
 #wrapper {
     display: flex;
-    max-width: 1200px;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -94,10 +94,28 @@ header img {
 #rightcolumn {
     flex: 1;
     padding: 10px;
+    width: 90%;
 }
 
 /* Style for the content inside the right column */
 .content img {
     max-width: 100%;
     height: auto;
+}
+
+/* Style for the footer */
+footer {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    clear: both; /* Clear the float to ensure the footer is below other content */
+}
+
+footer small {
+    color: #fff;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
 }
