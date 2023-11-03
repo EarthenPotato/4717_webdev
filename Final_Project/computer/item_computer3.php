@@ -10,7 +10,7 @@ if (mysqli_connect_errno()) {
     die('Connection error: ' . mysqli_connect_error());
 }
 
-$itemName = mysqli_real_escape_string($conn, "AP1"); // Always escape variables used in SQL queries
+$itemName = mysqli_real_escape_string($conn, "CQ3"); // Always escape variables used in SQL queries
 $sql = "SELECT price FROM product WHERE item = '$itemName' LIMIT 1"; // Assuming 'product_name' is the column to match and 'price' is the column you want to select
 
 $result = $conn->query($sql);
