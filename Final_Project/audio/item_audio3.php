@@ -1,3 +1,42 @@
+<?php
+$host = "localhost";
+$dbname = "electroshock";
+$username = "electroshock";
+$password = "electroshock";
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+if (mysqli_connect_errno()) {
+    die('Connection error: ' . mysqli_connect_error());
+}
+
+$itemName = mysqli_real_escape_string($conn, "AP3"); // Always escape variables used in SQL queries
+$sql = "SELECT price FROM product WHERE item = '$itemName' LIMIT 1"; // Assuming 'product_name' is the column to match and 'price' is the column you want to select
+
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $itemPrice = $row['price']; // The 'price' should be the column name where the price is stored
+} else {
+    $itemPrice = "Item not found"; 
+}
+
+function calculate_price($product_quant, $price) {
+    return $price * $product_quant;
+}
+
+$product_quant = isset($_POST['product_quant']) ? (int)$_POST['product_quant'] : 0;
+
+if ($itemPrice !== "Item not found") {
+    $price = calculate_price($product_quant, $itemPrice);
+    echo "The price is: " . $price;
+} else {
+    echo $itemPrice;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +65,8 @@
             </div>
         <div id="rightcolumn">
             <div class="content">
-                <h3>High-Fidelity Stereo Headphones</h3>
-                <h4>Price php value</h4>
+                <h3>Studio-Quality Sound Headphones</h3>
+                <h4><?php echo"Price: $" . $itemPrice   ;?></h4>
                 <table>
                     <tr>
                         <td>
@@ -40,11 +79,11 @@
                     <tr>
                         <td>
                             <p>
-                                Immerse yourself in unparalleled audio with our Compact High-Fidelity Headphones.
-                                Engineered for clarity, depth, and noise isolation, they offer premium sound in a sleek, portable design.
-                                Soft, cushioned ear pads ensure comfort for extended listening sessions, while intuitive controls make it easy to manage tracks and volume on the move.
-                                Connect seamlessly with advanced Bluetooth technology and enjoy long-lasting battery life.
-                                Perfect for daily commutes, office hours, or leisurely unwinding, these headphones are your gateway to a private concert experience anytime, anywhere.
+                            Discover every layer of your music with our Studio-Quality Sound Headphones.
+                            Precision-engineered drivers deliver high-resolution audio with a wide dynamic range to replicate studio sound.
+                            Active noise-cancelling technology lets you focus on what matters most - the music.
+                            Designed for durability and foldable for ease of travel, they're equipped with a quick-charge function to keep up with your on-the-go lifestyle.
+                            The perfect companion for the audiophile that's always in motion, they bring your playlist to life wherever you are.
                             </p>
                         </td>
                     </tr>

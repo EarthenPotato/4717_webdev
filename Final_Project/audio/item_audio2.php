@@ -4,28 +4,36 @@ $dbname = "electroshock";
 $username = "electroshock";
 $password = "electroshock";
 
-$conn = mysqli_connect($host,$username,$password,$dbname);
+$conn = mysqli_connect($host, $username, $password, $dbname);
 
-if(mysqli_connect_errno()){
-    die('connection error:'. mysqli_connect_error());
+if (mysqli_connect_errno()) {
+    die('Connection error: ' . mysqli_connect_error());
 }
-$itemName = "AP2"; //set to specific product
-$sql = "SELECT $itemName FROM order_list_price LIMIT 1"; 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $price = $row[$itemName];
-} else {
-    $price = "Item not found"; 
-}
+
+$itemName = mysqli_real_escape_string($conn, "AP2"); // Always escape variables used in SQL queries
+$sql = "SELECT price FROM product WHERE item = '$itemName' LIMIT 1"; // Assuming 'product_name' is the column to match and 'price' is the column you want to select
 
 $result = $conn->query($sql);
-function calculate_price($product_quant){
-    $price = $_POST['price'] * $product_quant;
-    return $price;
+
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $itemPrice = $row['price']; // The 'price' should be the column name where the price is stored
+} else {
+    $itemPrice = "Item not found"; 
 }
 
-$product_quant = isset($_POST['product_quant']) ? $_POST['product_quant'] : 0;
-$price = calculate_price($product_quant);
+function calculate_price($product_quant, $price) {
+    return $price * $product_quant;
+}
+
+$product_quant = isset($_POST['product_quant']) ? (int)$_POST['product_quant'] : 0;
+
+if ($itemPrice !== "Item not found") {
+    $price = calculate_price($product_quant, $itemPrice);
+    echo "The price is: " . $price;
+} else {
+    echo $itemPrice;
+}
 
 ?>
 
@@ -57,23 +65,25 @@ $price = calculate_price($product_quant);
             </div>
         <div id="rightcolumn">
             <div class="content">
-                <h1>Audio Product 1</h1>
-                <h2><?php echo"Price: $" . $price;?></h2>
+                <h3>Ultra-Comfort Wireless Headphones</h3>
+                <h4><?php echo"Price: $" . $itemPrice   ;?></h4>
                 <table>
                     <tr>
                         <td>
-                            <input type = "number" min = 0 onchange = calculate_price() name ="product_quant">
-                            <button name = 'add_to_cart'>Add to cart</button>
+                            <input type = "number" style = "width: 150px;" min = 0 max = 999 step = 1 onchange = calculate_price()>
+                            <button name = 'add_to_cart'>Add to cart</button><br>
+                            <button name = "checkout"><strong>Check out Now!</strong></button>
                         </td>
-                        <td><img src="..\pictures\forest_path.jpg" width = "70%"></td>
-                    </tr>
-                    <tr>
-                        <td><button name = "checkout">Check out Now!</button></td>
+                        <td rowspan="2"><img src="..\pictures\headphone.jpg" width = "80%"></td>
                     </tr>
                     <tr>
                         <td>
                             <p>
-                                Product Description
+                            Step into sonic brilliance with our Ultra-Comfort Wireless Headphones.
+                            Tailored for the music enthusiast, they offer a rich, balanced soundstage and robust bass.
+                            Experience the freedom of wireless connectivity coupled with a long-lasting battery, ensuring you stay unplugged for hours.
+                            The lightweight, ergonomic design and breathable ear cushions mean they sit softly on your ears, making them ideal for prolonged listening.
+                            Whether you're working out or winding down, these headphones are the ultimate audio accessory for everyday life.
                             </p>
                         </td>
                     </tr>
