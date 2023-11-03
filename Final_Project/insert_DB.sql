@@ -10,19 +10,42 @@ insert into customers(ID, name, email, address, phone_number, orderID) values
   (4, "David", "david@gmail.com", "2468 Cedar Lane", "789-0123",4),
   (5, "Eve", "eve@gmail.com", "1357 Pine Street", "345-6789",5);
 
-insert into order_list(customername, quantity, price) values
-  ("Bob", 5, 50.00),
-  ("Alice", 3, 30.50),
-  ("Charlie", 2, 15.75),
-  ("David", 4, 42.00),
-  ("Eve", 6, 60.75);
+insert into order_list(ID, customername) values
+  (1,"Bob"),
+  (2,"Alice"),
+  (3,"Charlie"),
+  (4,"David"),
+  (5,"Eve");
+
+INSERT INTO order_list_quantity(ID, AQ1, AQ2, AQ3, CQ1, CQ2, CQ3, TQ1, TQ2, TQ3)
+VALUES
+(1, 1, 2, 3, 1, 2, 3, 1, 2, 3),
+(2, 3, 1, 2, 3, 1, 2, 3, 1, 2),
+(3, 2, 3, 1, 2, 3, 1, 2, 3, 1),
+(4, 1, 3, 2, 1, 3, 2, 1, 3, 2),
+(5, 2, 1, 3, 2, 1, 3, 2, 1, 3);
 
 
-insert into product values
-  (50.00),
-  (30.50),
-  (15.75),
-  (42.00),
-  (60.75);
+  INSERT INTO order_list_price(ID, AP1, AP2, AP3, CP1, CP2, CP3, TP1, TP2, TP3)
+  VALUES
+(1, 120.99, 240.75, 299.99, 1500.50, 1850.75, 1999.99, 25.99, 75.49, 99.99),
+(2, 120.99, 240.75, 299.99, 1500.50, 1850.75, 1999.99, 25.99, 75.49, 99.99),
+(3, 120.99, 240.75, 299.99, 1500.50, 1850.75, 1999.99, 25.99, 75.49, 99.99),
+(4, 120.99, 240.75, 299.99, 1500.50, 1850.75, 1999.99, 25.99, 75.49, 99.99),
+(5, 120.99, 240.75, 299.99, 1500.50, 1850.75, 1999.99, 25.99, 75.49, 99.99);
+
+INSERT INTO product(item, price)
+VALUES
+('AP1', 120.99),
+('AP2', 240.75),
+('AP3', 299.99),
+('CP1', 1500.50),
+('CP2', 1850.75),
+('CP3', 1999.99),
+('TP1', 25.99),
+('TP2', 75.49),
+('TP3', 99.99);
+
+
 
 
