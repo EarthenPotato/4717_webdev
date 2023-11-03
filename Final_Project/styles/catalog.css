@@ -156,26 +156,11 @@ p {
 
 /* Style for the content inside the right column */
 .productBlock {
-    text-align: center;
+    text-align: left;
     width: 920px;
 }
-
 .image-row {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 100px;
-    margin-bottom: 10px;
-}
-
-.image-row a {
-    flex: 0 0 calc(20% );
-    text-decoration: none;
-    display: block;
-}
-
-.image-row img {
-    max-width: 100%;
-    height: auto;
+    padding-left: 40px;
 }
 
 /* Style for the content inside the right column */
