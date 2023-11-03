@@ -10,7 +10,7 @@ if (mysqli_connect_errno()) {
     die('Connection error: ' . mysqli_connect_error());
 }
 
-$itemName = mysqli_real_escape_string($conn, "CQ3"); // Always escape variables used in SQL queries
+$itemName = mysqli_real_escape_string($conn, "CP3"); // Always escape variables used in SQL queries
 $sql = "SELECT price FROM product WHERE item = '$itemName' LIMIT 1"; // Assuming 'product_name' is the column to match and 'price' is the column you want to select
 
 $result = $conn->query($sql);
@@ -67,7 +67,7 @@ if ($itemPrice !== "Item not found") {
             </div>
         <div id="rightcolumn">
             <div class="content">
-                <h3>High-Fidelity Stereo Headphones</h3>
+                <h3>Versatile Ultrabook Laptop</h3>
                 <h4><?php echo"Price: $" . $itemPrice   ;?></h4>
                 <table>
                     <tr>
@@ -76,16 +76,15 @@ if ($itemPrice !== "Item not found") {
                             <button name = 'add_to_cart'>Add to cart</button><br>
                             <button name = "checkout"><strong>Check out Now!</strong></button>
                         </td>
-                        <td rowspan="2"><img src="..\pictures\headphone.jpg" width = "80%"></td>
+                        <td rowspan="2"><img src="..\pictures\computer.jpg" width = "80%"></td>
                     </tr>
                     <tr>
                         <td>
                             <p>
-                                Immerse yourself in unparalleled audio with our Compact High-Fidelity Headphones.
-                                Engineered for clarity, depth, and noise isolation, they offer premium sound in a sleek, portable design.
-                                Soft, cushioned ear pads ensure comfort for extended listening sessions, while intuitive controls make it easy to manage tracks and volume on the move.
-                                Connect seamlessly with advanced Bluetooth technology and enjoy long-lasting battery life.
-                                Perfect for daily commutes, office hours, or leisurely unwinding, these headphones are your gateway to a private concert experience anytime, anywhere.
+                            Embrace portability and performance with our Versatile Ultrabook Laptop.
+                            Its ultra-slim profile and lightweight design make it an ideal companion for the mobile professional.
+                            Featuring a stunning display, responsive keyboard, and all-day battery life, this ultrabook doesn't cut corners on performance, offering fast processing speeds and ample storage.
+                            Wherever your work takes you, this laptop keeps pace.
                             </p>
                         </td>
                     </tr>
