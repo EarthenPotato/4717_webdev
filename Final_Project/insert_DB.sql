@@ -1,4 +1,4 @@
-use myuser;
+use electroshock;
 -- tables needed customers. products, order_list
 -- customers table contains ID, name, email, address, phone number,orderID 
 -- product table contains price
