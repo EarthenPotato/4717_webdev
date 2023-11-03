@@ -26,7 +26,6 @@ CREATE TABLE order_list_quantity (
 );
 
 CREATE TABLE order_list_price (
-    ID INT PRIMARY KEY,
     AP1 DECIMAL(10,2),
     AP2 DECIMAL(10,2),
     AP3 DECIMAL(10,2),

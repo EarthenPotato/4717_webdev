@@ -9,6 +9,23 @@ $conn = mysqli_connect($host,$username,$password,$dbname);
 if(mysqli_connect_errno()){
     die('connection error:'. mysqli_connect_error());
 }
+$itemName = "AP2"; //set to specific product
+$sql = "SELECT $itemName FROM order_list_price LIMIT 1"; 
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $price = $row[$itemName];
+} else {
+    $price = "Item not found"; 
+}
+
+$result = $conn->query($sql);
+function calculate_price($product_quant){
+    $price = $_POST['price'] * $product_quant;
+    return $price;
+}
+
+$product_quant = isset($_POST['product_quant']) ? $_POST['product_quant'] : 0;
+$price = calculate_price($product_quant);
 
 ?>
 
@@ -41,11 +58,11 @@ if(mysqli_connect_errno()){
         <div id="rightcolumn">
             <div class="content">
                 <h1>Audio Product 1</h1>
-                <h2>Price php value</h2>
+                <h2><?php echo"Price: $" . $price;?></h2>
                 <table>
                     <tr>
                         <td>
-                            <input type = "number" min = 0 onchange = calculate_price()>
+                            <input type = "number" min = 0 onchange = calculate_price() name ="product_quant">
                             <button name = 'add_to_cart'>Add to cart</button>
                         </td>
                         <td><img src="..\pictures\forest_path.jpg" width = "70%"></td>
