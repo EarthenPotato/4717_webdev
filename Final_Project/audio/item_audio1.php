@@ -75,7 +75,7 @@ if ($itemPrice !== "Item not found") {
                         <td>
                             <input type = "number" name="quantity" style = "width: 150px;" min = 0 max = 999 step = 1 onchange = calculate_price()>
                             <button name = 'add_to_cart'>Add to cart</button><br>
-                            <input type="hidden" name="default_product" value="cartAQ1">
+                            <input type="hidden" name="default_product" value="AQ1">
                             <button name = "checkout"><strong>Check out Now!</strong></button>
                         </td>
                         <td rowspan="2"><img src="..\pictures\headphone.jpg" width = "80%"></td>
