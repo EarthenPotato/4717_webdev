@@ -39,31 +39,30 @@ if (isset($_POST['add_to_cart'])) {
         $sql = "UPDATE cart SET quantity = quantity + ? WHERE product_name = ?";
         $stmt = $conn->prepare($sql);
 
-        if ($stmt) {
-            $stmt->bind_param("is", $quantity, $product_name);
-            
-            // Execute the statement
-            if ($stmt->execute()) {
-                echo "Record updated in the database successfully.";
-                $sql = "SELECT * FROM cart";
-                $result = $conn->query($sql);
+        $stmt->bind_param("is", $quantity, $product_name);
+        
+        // Execute the statement
+        if ($stmt->execute()) {
+            echo "Record updated in the database successfully.";
+            $sql = "SELECT * FROM cart";
+            $result = $conn->query($sql);
 
-                if ($result->num_rows > 0) {
-                    // Output data of each row
-                    while ($row = $result->fetch_assoc()) {
-                        echo " - Product Name: " . $row["product_name"]. " - Quantity: " . $row["quantity"]. "<br>";
-                    }
-                } else {
-                    echo "0 results";
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo " - Product Name: " . $row["product_name"]. " - Quantity: " . $row["quantity"]. "<br>";
                 }
             } else {
-                echo "Error: " . $stmt->error;
+                echo "0 results";
             }
+        } else {
+            echo "Error: " . $stmt->error;
+        }
 
             // Close the prepared statement
-            $stmt->close();
-        } else {
-            echo "Error preparing statement: " . $conn->error;
+        $stmt->close();
+        // } else {
+        //     echo "Error preparing statement: " . $conn->error;
         }
     } else {
         echo "Invalid product name.";
