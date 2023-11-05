@@ -47,9 +47,9 @@ VALUES
 ('TP3', 99.99);
 
 INSERT INTO cart (product_name, quantity) VALUES 
-('AP1', 0),
-('AP2', 0),
-('AP3', 0),
+('AQ1', 0),
+('AQ2', 0),
+('AQ3', 0),
 ('CQ1', 0),
 ('CQ2', 0),
 ('CQ3', 0),

@@ -11,7 +11,7 @@ if (mysqli_connect_errno()) {
     die('Connection error: ' . mysqli_connect_error());
 }
 
-$default_product_names = ['AP1', 'AP2', 'AP3', 'CQ1', 'CQ2', 'CQ3', 'TP1', 'TP2', 'TP3'];
+// $default_product_names = ['AP1', 'AP2', 'AP3', 'CQ1', 'CQ2', 'CQ3', 'TP1', 'TP2', 'TP3'];
 
 // Process the form data
 // if (isset($_POST['add_to_cart'])) {
@@ -67,7 +67,6 @@ if (isset($_POST['add_to_cart'])) {
     } else {
         echo "Invalid product name.";
     }
-}
 
 echo "SQL: " . $sql . "<br>";
 echo "Quantity: " . $quantity . "<br>";
