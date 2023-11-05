@@ -45,6 +45,17 @@ if (isset($_POST['add_to_cart'])) {
             // Execute the statement
             if ($stmt->execute()) {
                 echo "Record updated in the database successfully.";
+                $sql = "SELECT * FROM cart";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // Output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        echo " - Product Name: " . $row["product_name"]. " - Quantity: " . $row["quantity"]. "<br>";
+                    }
+                } else {
+                    echo "0 results";
+                }
             } else {
                 echo "Error: " . $stmt->error;
             }
