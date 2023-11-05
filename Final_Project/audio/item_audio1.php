@@ -67,7 +67,7 @@ if ($itemPrice !== "Item not found") {
             </div>
         <div id="rightcolumn">
             <div class="content">
-            <form action="process.php" method="post">
+            <form action="php/process.php" method="post">
                 <h3>High-Fidelity Stereo Headphones</h3>
                 <h4><?php echo"Price: $" . $itemPrice   ;?></h4>
                 <table>
