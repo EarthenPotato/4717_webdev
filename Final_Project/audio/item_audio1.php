@@ -67,13 +67,15 @@ if ($itemPrice !== "Item not found") {
             </div>
         <div id="rightcolumn">
             <div class="content">
+            <form action="process.php" method="post">
                 <h3>High-Fidelity Stereo Headphones</h3>
                 <h4><?php echo"Price: $" . $itemPrice   ;?></h4>
                 <table>
                     <tr>
                         <td>
-                            <input type = "number" style = "width: 150px;" min = 0 max = 999 step = 1 onchange = calculate_price()>
+                            <input type = "number" name="quantity" style = "width: 150px;" min = 0 max = 999 step = 1 onchange = calculate_price()>
                             <button name = 'add_to_cart'>Add to cart</button><br>
+                            <input type="hidden" name="default_product" value="AQ1">
                             <button name = "checkout"><strong>Check out Now!</strong></button>
                         </td>
                         <td rowspan="2"><img src="..\pictures\headphone.jpg" width = "80%"></td>
