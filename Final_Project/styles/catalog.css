@@ -175,11 +175,6 @@ p {
     cursor: pointer; 
 }
 
-/* Style for the content inside the right column */
-.productBlock {
-    text-align: left;
-    width: 920px;
-}
 
 /* Style for the content inside the right column */
 .content img {
@@ -193,6 +188,54 @@ input[type=number], select {
     margin: 8px 0px;
     margin-left: 40px;
     margin-bottom: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:Arial;
+}
+
+/* Style for the content inside the right column */
+.content img {
+    max-width: 100%;
+    height: auto;
+}
+.contactusMessage {
+    text-align: left;
+}
+
+
+input[type=text], select {
+    width: 498px;
+    min-width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:Arial;
+}
+textarea {
+    resize: none;
+    width: 1000px;
+    max-width: 1000px;
+    min-height: 150px;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:Arial;
+}
+.textareaOverride{
+    resize: none;
+    width: 1000px;
+    max-width: 1000px;
+    min-height: 150px;
+    padding: 12px 20px;
+    margin: 8px 0px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -225,3 +268,40 @@ footer a {
 
 
 
+
+/* Style for the plus-minus-input */
+.plus-minus-input button,
+.plus-minus-input input[type="number"] {
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-family: Arial;
+  height: auto; /* Adjust if necessary to fit the table row height */
+}
+
+/* Styles specifically for the input */
+.plus-minus-input input[type="number"] {
+  margin: 0; /* No additional margin is necessary within a table cell */
+  min-width: 40px;
+}
+
+/* Hide the default spin buttons in Chrome */
+.plus-minus-input input[type=number]::-webkit-inner-spin-button,
+.plus-minus-input input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Adjust the radius for left and right buttons, if they are the first/last element in the cell */
+.plus-minus-input button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.plus-minus-input button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+/* Remove focus outline on click in Chrome */
+.plus-minus-input button:focus {
+  outline: none;
+}
