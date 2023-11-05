@@ -16,7 +16,8 @@ if (isset($_POST['add_to_cart'])) {
     $quantity = intval($_POST['quantity']); // Get the quantity from the form
     $default_product_name = isset($_POST['default_product']) ? $_POST['default_product'] : "Default Product Name";
     
-    $sql = "UPDATE cart SET $product_name = $product_name + $quantity";
+    $sql = "UPDATE cart SET quantity = quantity + $quantity WHERE product_name = '$product_name_escaped'";
+
     if ($conn->query($sql) === TRUE) {
         echo "Record added to the database successfully.";
     } else {

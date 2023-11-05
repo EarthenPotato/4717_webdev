@@ -42,3 +42,8 @@ CREATE TABLE product (
     item VARCHAR(255),
     price DECIMAL(10, 2)
 );
+
+CREATE TABLE cart (
+    `product_name` VARCHAR(255),
+    `quantity` INT
+);
