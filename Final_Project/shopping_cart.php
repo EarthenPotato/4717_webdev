@@ -1,9 +1,16 @@
+<?php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Electronic shop</title>
     <link rel="stylesheet" type="text/css" href="styles/catalog.css">
+    <script src="javascript/dynamictable.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -28,7 +35,7 @@
             <div class="content">
                 <h3>Shopping Cart</h3>
 
-                <table border=1>
+                <!-- <table border=1>
                     <tr>
                       <td><img src="pictures\headphone.jpg" width = "40%"></td>
                       <td>[productName<br>price placeholder]</td>
@@ -41,7 +48,7 @@
                       <td colspan="2">[totalCost placeholder]</td>
                       <td style="text-align: right;"><button name = "checkout" style="width: 150px;"><strong>Check out Now!</strong></button></td>
                     </tr>
-                  </table>
+                  </table> -->
 
 
 
@@ -68,6 +75,20 @@
                         </td>
                     </tr>
                 </table> -->
+                <table id="orderTable" >
+                    <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    
+                </table>
+                  
             </div>
         </div>
     </div>
