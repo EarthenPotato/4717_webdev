@@ -47,7 +47,7 @@ if ($itemPrice !== "Item not found") {
 <body>
     <div id="wrapper">
             <div id="leftcolumn">
-                <button class="cartButton" onclick="location.href='../shopping_cart.html'"><a class="cartButtonText">CART</a></button>
+            <button class="cartButton" onclick="location.href='../shopping_cart.php'"><a class="cartButtonText">CART</a></button>
                 <nav> 
                     <ul>
                         <li><a href="..\index.html">Home</a></li>
