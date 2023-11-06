@@ -10,13 +10,20 @@ if (mysqli_connect_errno()) {
     die('Connection error: ' . mysqli_connect_error());
 }
 
-$sql = "SELECT product_name, quantity FROM cart";
+$sql = "SELECT c.product_name, c.quantity, p.price
+        FROM cart c
+        LEFT JOIN product p ON c.product_name = p.item";
+
 $result = $conn->query($sql);
+
+$products = [];
+
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $products[] = [
             'product' => $row["product_name"],
-            'quantity' => $row["quantity"]
+            'quantity' => $row["quantity"],
+            'price' => $row["price"]
         ];
     }
 } else {
