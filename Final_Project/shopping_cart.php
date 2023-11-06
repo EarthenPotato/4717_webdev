@@ -12,8 +12,8 @@ if (mysqli_connect_errno()) {
 
 $sql = "SELECT c.product_name, c.quantity, p.price
         FROM cart c
-        LEFT JOIN product p ON SUBSTRING(c.product_name, 1, 1) = p.item
-                              AND SUBSTRING(c.product_name, 3, 1) = p.item";
+        LEFT JOIN product p ON SUBSTRING(c.product_name, 1, 1) = SUBSTRING(p.item, 1, 1)
+                              AND SUBSTRING(c.product_name, 3, 1) = SUBSTRING(p.item, 3, 1)";
 
 
 $result = $conn->query($sql);
