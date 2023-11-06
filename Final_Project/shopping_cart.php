@@ -10,19 +10,25 @@ if (mysqli_connect_errno()) {
     die('Connection error: ' . mysqli_connect_error());
 }
 
-$sql = "SELECT product, quantity FROM your_table_name";
+$sql = "SELECT product_name, quantity FROM cart";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $product = $row["product"];
-        $quantity = $row["quantity"];
+        $products[] = [
+            'product' => $row["product_name"],
+            'quantity' => $row["quantity"]
+        ];
     }
 } else {
     echo "No products found.";
 }
-
-
 ?>
+
+<script>
+    var phpData = <?php echo json_encode($products); ?>;
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
