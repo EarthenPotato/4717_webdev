@@ -2,22 +2,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const table = document.querySelector('table');
     const tbody = table.querySelector('tbody');
     
-    // Access the data from phpData
-    const product = phpData.product;
-    const quantity = phpData.quantity;
-
-    // Initialize an array to store the data
-    const orders = [];
-
-    // Push the data into the orders array
-    orders.push({ product, quantity });
-
-    // Loop through the orders and populate the table
-    for (const order of orders) {
+    // Loop through the phpData array and populate the table
+    for (const order of phpData) {
         const row = tbody.insertRow();
         
+        console.log(order.product, order.quantity);
+
         // Create productImage based on order.product
         const productImage = document.createElement('img');
+        productImage.style.width = '10%';
+        
         if (order.product.includes("AQ")) {
             productImage.src = "pictures/headphone.jpg";
         } else if (order.product.includes("CQ")) {
@@ -31,6 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         row.insertCell(1).textContent = order.product;
         row.insertCell(2).textContent = order.quantity;
         // You will need to provide a price or modify this part accordingly
-        row.insertCell(3).textContent = `$${(order.quantity * order.price).toFixed(2)}`;
+        // row.insertCell(3).textContent = `$${(order.quantity * order.price).toFixed(2)}`;
     }
 });
