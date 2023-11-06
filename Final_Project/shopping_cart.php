@@ -10,6 +10,16 @@ if (mysqli_connect_errno()) {
     die('Connection error: ' . mysqli_connect_error());
 }
 
+$sql = "SELECT product, quantity FROM your_table_name";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $product = $row["product"];
+        $quantity = $row["quantity"];
+    }
+} else {
+    echo "No products found.";
+}
 
 
 ?>
@@ -44,46 +54,6 @@ if (mysqli_connect_errno()) {
             <div class="content">
                 <h3>Shopping Cart</h3>
 
-                <!-- <table border=1>
-                    <tr>
-                      <td><img src="pictures\headphone.jpg" width = "40%"></td>
-                      <td>[productName<br>price placeholder]</td>
-                      <td>[productCount placeholder]</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3"><textarea class="textareaOverride" placeholder="Special instruction"></textarea></td>
-                    </tr>
-                    <tr>
-                      <td colspan="2">[totalCost placeholder]</td>
-                      <td style="text-align: right;"><button name = "checkout" style="width: 150px;"><strong>Check out Now!</strong></button></td>
-                    </tr>
-                  </table> -->
-
-
-
-
-                <!-- <table>
-                    <tr>
-                        <td>image</td>
-                        <td>
-                            Price <br>
-                            $php price 
-                        </td>
-                        <td>quantity</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h3>special instructions</h3>
-                            <input type="text" name="special_order" id="special_order">
-                        </td> 
-                    </tr>
-                    <tr>
-                        <td>
-                            Total: php calc 
-                            <button><a href="payment_page.html">Order Now</a></button>
-                        </td>
-                    </tr>
-                </table> -->
                 <table id="orderTable" >
                     <thead>
                     <tr>

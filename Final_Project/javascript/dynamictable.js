@@ -1,8 +1,18 @@
 // Sample order data (you can replace this with your actual data)
 document.addEventListener('DOMContentLoaded', function() {
+    const table = document.querySelector('table');
+    const rows = table.querySelectorAll('tr');
 
-      const table = document.getElementById('orderTable');
-      const tbody = table.getElementsByTagName('tbody')[0];
+    // Initialize an array to store the data
+    const orders = [];
+
+    rows.forEach(row => {
+        const product = row.querySelector('.product').textContent;
+        const quantity = row.querySelector('.quantity').textContent;
+
+        // Push the data into the orders array
+        orders.push({ product, quantity });
+    });
       
       // Loop through the orders and populate the table
     for (const order of orders) {
