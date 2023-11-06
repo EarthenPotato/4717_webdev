@@ -35,6 +35,47 @@ if ($itemPrice !== "Item not found") {
     echo $itemPrice;
 }
 
+if (isset($_POST['add_to_cart'])) {
+    $quantity = intval($_POST['quantity']); 
+    $product_name_input = $_POST['default_product']; 
+
+    // echo $product_name_input, $quantity;
+
+    if ($product_name_input) {
+        $product_name = mysqli_real_escape_string($conn, $product_name_input);
+        $sql = "UPDATE cart SET quantity = quantity + ? WHERE product_name = ?";
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bind_param("is", $quantity, $product_name);
+        if ($stmt->execute()) {
+            echo "Record updated in the database successfully.";
+            $sql = "SELECT * FROM cart";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo " - Product Name: " . $row["product_name"]. " - Quantity: " . $row["quantity"]. "<br>";
+                }
+            } else {
+                echo "0 results";
+            }
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+
+            // Close the prepared statement
+        $stmt->close();
+        } else {
+            echo "Error preparing statement: " . $conn->error;
+        }
+    } 
+else {
+        echo "Invalid product name.";
+    }
+
+$conn->close();
+
 ?>
 
 <!DOCTYPE html>
