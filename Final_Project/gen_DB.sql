@@ -44,6 +44,6 @@ CREATE TABLE product (
 );
 
 CREATE TABLE cart (
-    `product_name` VARCHAR(255),
-    `quantity` INT
+    "product_name" VARCHAR(255),
+    "quantity" INT
 );
