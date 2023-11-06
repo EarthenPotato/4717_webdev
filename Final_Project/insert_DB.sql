@@ -53,9 +53,9 @@ INSERT INTO cart (product_name, quantity) VALUES
 ('CQ1', 0),
 ('CQ2', 0),
 ('CQ3', 0),
-('TP1', 0),
-('TP2', 0),
-('TP3', 0);
+('TQ1', 0),
+('TQ2', 0),
+('TQ3', 0);
 
 
 

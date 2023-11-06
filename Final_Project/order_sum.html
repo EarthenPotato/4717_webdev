@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Electronic shop</title>
-    <link rel="stylesheet" type="text/css" href="styles/index_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/catalog.css">
 </head>
 <body>
     <div id="wrapper">
             <div id="leftcolumn">
-                <button><a href="shopping_cart.html">cart</a></button>
+                <button class="cartButton" onclick="location.href='shopping_cart.php'"><a class="cartButtonText">CART</a></button>
                 <nav> 
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -26,9 +26,9 @@
             </div>
         <div id="rightcolumn">
             <div class="content">
-                <h1>Order Detail</h1>
-                <h3>order number</h3>
-                <h3>order date</h3>
+                <h3>Order Detail</h3>
+                <h4>Order Number</h4>
+                <h4>Order Date</h4>
                 <table name ="order_summary">
                     <tr>
                         <td>Price</td>
@@ -47,8 +47,8 @@
                         <td>$ php calc</td>
                     </tr>
                 </table>
+                <h4>Shipping Information</h4>
                 <table name = "Shipping">
-                    <tr><strong>Shipping Infomation</strong></tr>
                     <tr>
                         <td>Name</td>
                         <td> buyer name</td>

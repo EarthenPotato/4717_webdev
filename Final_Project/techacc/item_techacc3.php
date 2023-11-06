@@ -30,14 +30,59 @@ $product_quant = isset($_POST['product_quant']) ? (int)$_POST['product_quant'] :
 
 if ($itemPrice !== "Item not found") {
     $price = calculate_price($product_quant, $itemPrice);
-    echo "The price is: " . $price;
+    // echo "The price is: " . $price;
 } else {
     echo $itemPrice;
 }
 
+if (isset($_POST['add_to_cart'])) {
+    $quantity = intval($_POST['quantity']); 
+    $product_name_input = $_POST['default_product']; 
+
+    if ($product_name_input) {
+        $product_name = mysqli_real_escape_string($conn, $product_name_input);
+        $sql = "UPDATE cart SET quantity = quantity + ? WHERE product_name = ?";
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bind_param("is", $quantity, $product_name);
+        if ($stmt->execute()) {
+            $sql = "SELECT * FROM cart";
+            $result = $conn->query($sql);
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+        $stmt->close();
+        } else {
+            echo "Error preparing statement: " . $conn->error;
+        }
+    } 
+
+if (isset($_POST["checkout"])) {
+    $quantity = (isset($_POST['quantity']) && intval($_POST['quantity']) > 0) ? intval($_POST['quantity']) : 1;
+    $product_name_input = $_POST['default_product'];
+    // echo $quantity;
+    if ($product_name_input) {
+        $product_name = mysqli_real_escape_string($conn, $product_name_input);
+        $sql = "UPDATE cart SET quantity = quantity + ? WHERE product_name = ?";
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bind_param("is", $quantity, $product_name);
+        if ($stmt->execute()) {
+            $sql = "SELECT * FROM cart";
+            $result = $conn->query($sql);
+            header('Location: ../order_sum.html');
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+        $stmt->close();
+        } else {
+            echo "Error preparing statement: " . $conn->error;
+        }
+    }
+
+$conn->close();
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,6 +112,7 @@ if ($itemPrice !== "Item not found") {
             </div>
         <div id="rightcolumn">
             <div class="content">
+            <form action="item_techacc3.php" method="post">
                 <h3>Universal Keyboard Stand</h3>
                 <h4><?php echo"Price: $" . $itemPrice   ;?></h4>
                 <table>
@@ -74,6 +120,7 @@ if ($itemPrice !== "Item not found") {
                         <td>
                             <input type = "number" style = "width: 150px;" min = 0 max = 999 step = 1 onchange = calculate_price()>
                             <button name = 'add_to_cart'>Add to cart</button><br>
+                            <input type="hidden" name="default_product" value="TQ3">
                             <button name = "checkout"><strong>Check out Now!</strong></button>
                         </td>
                         <td rowspan="2"><img src="..\pictures\techacc.jpg" width = "80%"></td>

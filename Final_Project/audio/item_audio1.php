@@ -58,9 +58,9 @@ if (isset($_POST['add_to_cart'])) {
     } 
 
 if (isset($_POST["checkout"])) {
-    $quantity = isset($_POST['quantity']) ? intval($_POST['quantity']) : 1;
-    $product_name_input = $_POST['default_product']; 
-
+    $quantity = (isset($_POST['quantity']) && intval($_POST['quantity']) > 0) ? intval($_POST['quantity']) : 1;
+    $product_name_input = $_POST['default_product'];
+    // echo $quantity;
     if ($product_name_input) {
         $product_name = mysqli_real_escape_string($conn, $product_name_input);
         $sql = "UPDATE cart SET quantity = quantity + ? WHERE product_name = ?";
@@ -70,6 +70,7 @@ if (isset($_POST["checkout"])) {
         if ($stmt->execute()) {
             $sql = "SELECT * FROM cart";
             $result = $conn->query($sql);
+            header('Location: ../order_sum.html');
         } else {
             echo "Error: " . $stmt->error;
         }
@@ -77,15 +78,11 @@ if (isset($_POST["checkout"])) {
         } else {
             echo "Error preparing statement: " . $conn->error;
         }
-} 
-
-
+    }
 
 $conn->close();
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -124,7 +121,7 @@ $conn->close();
                             <input type = "number" name="quantity" style = "width: 150px;" min = 0 max = 999 step = 1 onchange = calculate_price()>
                             <button type = "submit" name = 'add_to_cart'>Add to cart</button><br>
                             <input type="hidden" name="default_product" value="AQ1">
-                            <button name = "checkout"><strong><a href = "order_sum.html">Check out Now!<a></strong></button>
+                            <button type = "submit" name = "checkout"><strong>Check out Now!</strong></button>
                         </td>
                         <td rowspan="2"><img src="..\pictures\headphone.jpg" width = "80%"></td>
                     </tr>
