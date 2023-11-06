@@ -46,17 +46,8 @@ if (isset($_POST['add_to_cart'])) {
 
         $stmt->bind_param("is", $quantity, $product_name);
         if ($stmt->execute()) {
-            // echo "Record updated in the database successfully.";
             $sql = "SELECT * FROM cart";
             $result = $conn->query($sql);
-
-            // if ($result->num_rows > 0) {
-            //     while ($row = $result->fetch_assoc()) {
-            //         echo " - Product Name: " . $row["product_name"]. " - Quantity: " . $row["quantity"]. "<br>";
-            //     }
-            // } else {
-            //     echo "0 results";
-            // }
         } else {
             echo "Error: " . $stmt->error;
         }
@@ -65,9 +56,30 @@ if (isset($_POST['add_to_cart'])) {
             echo "Error preparing statement: " . $conn->error;
         }
     } 
-else {
-        echo "Invalid product name.";
-    }
+
+if (isset($_POST["checkout"])) {
+    $quantity = isset($_POST['quantity']) ? intval($_POST['quantity']) : 1;
+    $product_name_input = $_POST['default_product']; 
+
+    if ($product_name_input) {
+        $product_name = mysqli_real_escape_string($conn, $product_name_input);
+        $sql = "UPDATE cart SET quantity = quantity + ? WHERE product_name = ?";
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bind_param("is", $quantity, $product_name);
+        if ($stmt->execute()) {
+            $sql = "SELECT * FROM cart";
+            $result = $conn->query($sql);
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+        $stmt->close();
+        } else {
+            echo "Error preparing statement: " . $conn->error;
+        }
+} 
+
+
 
 $conn->close();
 
@@ -112,7 +124,7 @@ $conn->close();
                             <input type = "number" name="quantity" style = "width: 150px;" min = 0 max = 999 step = 1 onchange = calculate_price()>
                             <button type = "submit" name = 'add_to_cart'>Add to cart</button><br>
                             <input type="hidden" name="default_product" value="AQ1">
-                            <button name = "checkout"><strong>Check out Now!</strong></button>
+                            <button name = "checkout"><strong><a href = "order_sum.html">Check out Now!<a></strong></button>
                         </td>
                         <td rowspan="2"><img src="..\pictures\headphone.jpg" width = "80%"></td>
                     </tr>
