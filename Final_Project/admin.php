@@ -1,9 +1,40 @@
+<?php
+$host = "localhost";
+$dbname = "electroshock";
+$username = "electroshock";
+$password = "electroshock";
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+if (mysqli_connect_errno()) {
+    die('Connection error: ' . mysqli_connect_error());
+}
+
+$sql = "SELECT product_name, quantity FROM cart";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $products[] = [
+            'product' => $row["product_name"],
+            'quantity' => $row["quantity"]
+        ];
+    }
+} else {
+    echo "No products found.";
+}
+?>
+
+<script>
+    var phpData = <?php echo json_encode($products); ?>;
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Electronic shop</title>
     <link rel="stylesheet" type="text/css" href="styles/catalog.css">
+    <script src="javascript/dynamictable_admin.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -26,37 +57,20 @@
             </div>
         <div id="rightcolumn">
             <div class="content">
-            <table class="adminTable" border=1>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Order Status</th>
-                    <th>Send Email</th>
-                </tr>
-                <tr>
-                    <td>Row 1, Cell 1</td>
-                    <td>
-                        <select class=orderStatusSelect>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                                                
-
-                    </td>
-                    <td>Row 1, Cell 3</td>
-                </tr>
-                <tr>
-                    <td>Row 2, Cell 1</td>
-                    <td>Row 2, Cell 2</td>
-                    <td>Row 2, Cell 3</td>
-                </tr>
-                <tr>
-                    <td>Row 3, Cell 1</td>
-                    <td>Row 3, Cell 2</td>
-                    <td>Row 3, Cell 3</td>
-                </tr>
+            <table id="orderTable">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Status</th> <!-- Add this line -->
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
             </table>
+
             </div>
         </div>
     </div>

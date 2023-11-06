@@ -2,11 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const table = document.querySelector('table');
     const tbody = table.querySelector('tbody');
     
+    console.log(phpData);
+
     for (const order of phpData) {
         if (order.quantity > 0) { 
         const row = tbody.insertRow();
         
-        // console.log(order.product, order.quantity);
+        console.log(order.product, order.quantity, order.price);
         const productImage = document.createElement('img');
         productImage.style.width = '10%';
         
