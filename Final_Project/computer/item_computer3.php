@@ -72,7 +72,6 @@ else {
 $conn->close();
 
 ?>
-?>
 
 
 

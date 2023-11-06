@@ -30,7 +30,7 @@ $product_quant = isset($_POST['product_quant']) ? (int)$_POST['product_quant'] :
 
 if ($itemPrice !== "Item not found") {
     $price = calculate_price($product_quant, $itemPrice);
-    echo "The price is: " . $price;
+    // echo "The price is: " . $price;
 } else {
     echo $itemPrice;
 }
@@ -46,17 +46,17 @@ if (isset($_POST['add_to_cart'])) {
 
         $stmt->bind_param("is", $quantity, $product_name);
         if ($stmt->execute()) {
-            echo "Record updated in the database successfully.";
+            // echo "Record updated in the database successfully.";
             $sql = "SELECT * FROM cart";
             $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo " - Product Name: " . $row["product_name"]. " - Quantity: " . $row["quantity"]. "<br>";
-                }
-            } else {
-                echo "0 results";
-            }
+            // if ($result->num_rows > 0) {
+            //     while ($row = $result->fetch_assoc()) {
+            //         echo " - Product Name: " . $row["product_name"]. " - Quantity: " . $row["quantity"]. "<br>";
+            //     }
+            // } else {
+            //     echo "0 results";
+            // }
         } else {
             echo "Error: " . $stmt->error;
         }
@@ -103,7 +103,7 @@ $conn->close();
             </div>
         <div id="rightcolumn">
             <div class="content">
-            <form action="../php/process.php" method="post">
+            <form action="item_audio1.php" method="post">
                 <h3>High-Fidelity Stereo Headphones</h3>
                 <h4><?php echo"Price: $" . $itemPrice   ;?></h4>
                 <table>
