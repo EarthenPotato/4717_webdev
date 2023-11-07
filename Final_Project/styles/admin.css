@@ -284,19 +284,6 @@ table {
   }
 
   #orderTable td {
-    padding: 8px 20px; /* Top and bottom padding 8px, left and right padding 20px */
-    text-align: left;
-  }
-
-  #orderTable .row-white td {
-    background-color: #ffffff;
-  }
-
-  #orderTable .row-gray td {
-    background-color: #f2f2f2;
-  }
-
-  /* Optional: Style for the email button */
-  #orderTable button {
-    /* Add button styling here if necessary */
+    padding-left: 30px; /* Top and bottom padding 8px, left and right padding 20px */
+    text-align: middle;
   }
