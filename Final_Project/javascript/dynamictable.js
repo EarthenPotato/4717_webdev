@@ -6,23 +6,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     for (const order of phpData) {
         if (order.quantity > 0) { 
-        const row = tbody.insertRow();
-        
-        console.log(order.product, order.quantity, order.price);
-        const productImage = document.createElement('img');
-        productImage.style.width = '10%';
-        
-        if (order.product.includes("AQ")) {
-            productImage.src = "pictures/headphone.jpg";
-        } else if (order.product.includes("CQ")) {
-            productImage.src = "pictures/computer.jpg";
-        } else if (order.product.includes("TQ")) {
-            productImage.src = "pictures/techacc.jpg";
-        }
+            const row = tbody.insertRow();
 
-        row.insertCell(0).appendChild(productImage);
-        row.insertCell(1).textContent = order.product;
-        row.insertCell(2).textContent = order.quantity;
-        row.insertCell(3).textContent = order.price * order.quantity;
+            console.log(order.product, order.quantity, order.price);
+            const productImage = document.createElement('img');
+            productImage.style.width = '10%';
+        
+            if (order.product.includes("AQ")) {
+                productImage.src = "pictures/headphone.jpg";
+            } else if (order.product.includes("CQ")) {
+                productImage.src = "pictures/computer.jpg";
+            } else if (order.product.includes("TQ")) {
+                productImage.src = "pictures/techacc.jpg";
+            }
+
+            row.insertCell(0).appendChild(productImage);
+            row.insertCell(1).textContent = order.product;
+            row.insertCell(2).textContent = order.quantity;
+            row.insertCell(3).textContent = order.price * order.quantity;
+            
+            // Create a delete button for the row
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            row.insertCell(4).appendChild(deleteButton);
+            
+            // Add a click event handler to the delete button
+            deleteButton.addEventListener('click', function() {
+                // Remove the corresponding row from the table
+                table.deleteRow(row.rowIndex);
+                // You may want to update your cart or send a request to the server here
+            });
+        }
     }
-}});
+});
