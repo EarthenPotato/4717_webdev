@@ -46,7 +46,7 @@ if ($result->num_rows > 0) {
 }
 
 if (isset($_POST['confirm'])) {
-    echo "Confirmation POST request received.<br>";
+    // echo "Confirmation POST request received.<br>";
     $sql = 'SELECT item, price FROM product';
     $result = $conn->query($sql);
 
@@ -96,20 +96,20 @@ if (isset($_POST['confirm'])) {
             $itemsArray = explode(' ', $row['product_name']);
             foreach ($itemsArray as $item) {
                 // echo $item ;
-                echo '<br>';
+                // echo '<br>';
                 if ($first) {
                     $sql = "INSERT INTO order_list_quantity (`$item`) VALUES (?)";
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("i", $quantity);
                 
                     if ($stmt->execute()) {
-                        echo "first inserted", $quantity;
+                        // echo "first inserted", $quantity;
                         $first = false;  
                     } else {
                         echo "Error copying quantity for '$item': " . $conn->error . "<br>";
                     }
                 } else {
-                    echo $item, "<br>";
+                    // echo $item, "<br>";
                     $sql = "UPDATE order_list_quantity SET $item = ? WHERE id = (SELECT id FROM order_list_quantity ORDER BY id DESC LIMIT 1)";
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("i", $quantity);
