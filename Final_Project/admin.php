@@ -27,25 +27,28 @@ if ($result && $result->num_rows > 0) {
     // Output data of each row
     while($row = $result->fetch_assoc()) {
         // Concatenate the quantities into a single string
-        $quantities = implode(", ", array_slice($row, 2)); // Get all quantity columns and make a comma-separated string
+        $quantities =  array_slice($row, 2); 
         // Append the data to the orders array
         $orders[] = [
             'ID' => $row['ID'],
             'customername' => $row['customername'],
             'quantities' => $quantities
         ];
+
     }
 } else {
     echo "0 results";
 }
+// foreach ($orders as $order)
+// {
+//     echo implode(", ", $order["quantities"]);
+//     echo "<br>";
+// }
+
 
 // Close the connection
 $conn->close();
 
-// You can now use $orders as needed
-// foreach ($orders as $order) {
-//     echo "ID: " . $order['ID'] . " - Customer Name: " . $order['customername'] . " - Quantities: " . $order['quantities'] . PHP_EOL;
-// }
 
 ?>
 

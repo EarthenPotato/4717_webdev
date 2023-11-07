@@ -1,56 +1,57 @@
 document.addEventListener('DOMContentLoaded', function() {
     const tableBody = document.querySelector('#orderTable tbody');
+    console.log("DOM fully loaded and parsed");
+    console.log("this is phpData", phpData);
 
     phpData.forEach(order => {
         const row = tableBody.insertRow();
 
-        // Insert ID
-        row.insertCell(0).textContent = order.ID;
-        
-        // Insert Customer Name
-        row.insertCell(1).textContent = order.customername;
+        // Access ID using the property name 'ID'
+        const id = order.ID;
+        row.insertCell(0).textContent = id;
+        console.log("Order ID:", id);
 
-        // Products cell
+        // Access Customer Name using the property name 'customername'
+        const customerName = order.customername;
+        row.insertCell(1).textContent = customerName;
+        console.log("Customer Name:", customerName);
+
+        // Products and Quantities cell
         const productsCell = row.insertCell(2);
-        let productsText = ''; // Initialize an empty string to hold the product details
+        let productsText = '';
 
-        // Product names are placeholders here, replace 'Product A', 'Product C', 'Product T' 
-        // with the actual names of the products corresponding to 'AQ', 'CQ', 'TQ'
-        const productNames = {
-          'AQ1': 'Product A1',
-          'AQ2': 'Product A2',
-          'AQ3': 'Product A3',
-          'CQ1': 'Product C1',
-          'CQ2': 'Product C2',
-          'CQ3': 'Product C3',
-          'TQ1': 'Product T1',
-          'TQ2': 'Product T2',
-          'TQ3': 'Product T3'
-        };
+        // Assuming the 'quantities' is an object with product codes as keys and quantities as values
+        const quantities = order.quantities;
+        
+        Object.keys(quantities).forEach(productCode => {
+            const quantity = quantities[productCode];
+            if (quantity > 0) {
+                productsText += `${productCode} - ${quantity}, `;
+                
+                // Log each product and quantity
+                console.log(`${productCode} - ${quantity}`);
+            }
+        });
 
-        for (const [key, value] of Object.entries(order)) {
-          if (productNames[key] && value > 0) {
-            productsText += `${productNames[key]} - ${value}, `;
-          }
-        }
-
-        // Remove the trailing comma and space
-        productsText = productsText.replace(/, $/, '');
+        // Log the final products text before setting it in the cell
+        console.log("Final Products Text:", productsText);
 
         // Set the text content of the products cell to the formatted products text
-        productsCell.textContent = productsText;
+        productsCell.textContent = productsText.replace(/, $/, '');  // Remove trailing comma and space
 
         // Status dropdown cell
-        
         const statusCell = row.insertCell(3);
         const statusSelect = document.createElement('select');
-        statusSelect.className = 'status-dropdown';
         ['Pending', 'Processing', 'Shipped', 'Delivered'].forEach(status => {
             const option = document.createElement('option');
             option.value = status;
             option.textContent = status;
             statusSelect.appendChild(option);
         });
+
+        // Log the status options added
+        console.log("Status options added for ID:", id);
+
         statusCell.appendChild(statusSelect);
 
         // Email button cell
@@ -58,8 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailButton = document.createElement('button');
         emailButton.textContent = 'Send Email';
         emailButton.addEventListener('click', function() {
+            // Log the email button click
+            console.log(`Email button clicked for order ID: ${id}`);
+            
             // Placeholder for email sending logic
-            console.log(`Email notification for order ID: ${order.ID}`);
+            // You can add a debugger here to pause when email button is clicked
+            debugger;
         });
         emailCell.appendChild(emailButton);
     });

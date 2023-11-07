@@ -182,7 +182,7 @@ p {
     height: auto;
 }
 
-input[type=number], select {
+input[type=number] {
     min-width: 40px;
     padding: 12px 20px;
     margin: 8px 0px;
@@ -193,6 +193,10 @@ input[type=number], select {
     border-radius: 4px;
     box-sizing: border-box;
     font-family:Arial;
+}
+
+select {
+    width: 40px;
 }
 
 /*status dropdown*/
