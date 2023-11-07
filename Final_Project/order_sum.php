@@ -44,6 +44,55 @@ if ($result->num_rows > 0) {
     $email = $shipping_info['email'];
     }
 }
+
+if (isset($_POST['confirm'])) {
+
+    $sql = 'SELECT item, price FROM product';
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $item = $row['item'];
+            $price = $row['price'];
+            $itemsArray = explode(' ', $item);
+            foreach ($itemsArray as $item) {
+                $insertSql = "UPDATE order_list_price SET $item = $price";
+                if ($conn->query($insertSql) === TRUE) {
+                    echo "Price for '$item' copied successfully.<br>";
+                } else {
+                    echo "Error copying price for '$item': " . $conn->error . "<br>";
+                }
+            }
+        }
+    } else {
+        echo "No products found.";
+    }
+
+    $sql = 'SELECT product_name, quantity FROM cart';
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $product_name = $row['product_name'];
+            $quantity = $row['quantity'];
+            $product_nameArray = explode(' ', $product_name);
+            foreach ($product_nameArray as $product_name) {
+                $insertSql = "UPDATE order_list_quantity SET $product_name = $quantity";
+                if ($conn->query($insertSql) === TRUE) {
+                    echo "Price for '$product_name' copied successfully.<br>";
+                } else {
+                    echo "Error copying price for '$product_name': " . $conn->error . "<br>";
+                }
+            }
+        }
+    } else {
+        echo "No products found.";
+    }
+
+    $conn->close();
+}
+
+
 ?>
 
 <script>
@@ -57,6 +106,7 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <title>Electronic shop</title>
     <link rel="stylesheet" type="text/css" href="styles/catalog.css">
+    <script src="javascript/dynamictable_order_sum.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -79,7 +129,7 @@ if ($result->num_rows > 0) {
             </div>
         <div id="rightcolumn">
             <div class="content">
-            <h3>Order Detail</h3>
+                <h3>Order Detail</h3>
                 <h4>Order Number</h4>
                 <h4>Order Date</h4>
                 <table id="orderTable" >
@@ -117,6 +167,7 @@ if ($result->num_rows > 0) {
                             <td><?php echo $email; ?></td>
                         </tr>
                     </table>
+                    <button name = 'confirm'>Confirm</button>
             </div>
         </div>
     </div>
