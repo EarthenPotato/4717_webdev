@@ -64,11 +64,13 @@ if (isset($_POST['checkout'])) {
         <form id="paymentForm" action="payment_page.php" method="post">
             <table class=adminTable>
                 <tr>
-                    <td>Email:</td>
+                    <td>Contact:</td>
                 </tr>
                 <tr>
                     <td><input type="text" id="emailInput" name="cEmail" placeholder="Email" novalidate></td>
                 </tr>
+            </table>
+            <table class=adminTable>
                 <tr>
                     <td>Shipping Address:</td>
                 </tr>
