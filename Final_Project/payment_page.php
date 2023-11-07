@@ -46,9 +46,9 @@ if (isset($_POST['checkout'])) {
             <button class="cartButton" onclick="location.href='../shopping_cart.php'"><a class="cartButtonText">CART</a></button>
             <nav> 
                 <ul>
-                    <li><a href="..\index.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
-                        <a href="..\catalog.html">Catalog</a>
+                        <a href="catalog.html">Catalog</a>
                         <div class="dropdown-content">
                             <a href = "..\audio\category_audio.html">Audio</a>
                             <a href = "..\computer\category_computer.html">Computer</a>
