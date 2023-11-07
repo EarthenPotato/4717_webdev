@@ -13,15 +13,14 @@ if (mysqli_connect_errno()) {
 if (isset($_POST['checkout'])) {
     // Retrieve form data and sanitize
     $cCountry = mysqli_real_escape_string($conn, $_POST['cCountry']);
-    $cFirstName = mysqli_real_escape_string($conn, $_POST['cFirstName']);
-    $cLastName = mysqli_real_escape_string($conn, $_POST['cLastName']);
+    $cName = mysqli_real_escape_string($conn, $_POST['cName']);
     $cAddress = mysqli_real_escape_string($conn, $_POST['cAddress']);
     $cApartment = mysqli_real_escape_string($conn, $_POST['cApartment']);
     $cPostalCode = mysqli_real_escape_string($conn, $_POST['cPostalCode']);
     $cPhone = mysqli_real_escape_string($conn, $_POST['cPhone']);
-
+    echo $cCountry;
     // Construct the SQL query
-    $sql = "INSERT INTO c_info (country, name, address, room, postal_code, phone) VALUES ('$cCountry', '$cFirstName', '$cAddress', '$cApartment', '$cPostalCode', '$cPhone')";
+    $sql = "INSERT INTO customers (country, name, address, room, postal_code, phone_number) VALUES ('$cCountry', '$cName', '$cAddress', '$cApartment', '$cPostalCode', '$cPhone')";
 
     // Execute the SQL query
     if (mysqli_query($conn, $sql)) {
@@ -61,6 +60,7 @@ if (isset($_POST['checkout'])) {
         </div>
     
         <div id="rightcolumn">
+        <form action="payment_page.php" method="post">
             <table border=1>
                 <tr>
                     <td>Email:</td>
@@ -77,7 +77,7 @@ if (isset($_POST['checkout'])) {
                     <td colspan="2"><input type="text" name="cCountry" placeholder="Country/Region"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="cFirstName" placeholder="First name"></td>
+                    <td colspan="2"><input type="text" name="cName" placeholder="Name"></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="text" name="cAddress" placeholder="Address"></td>
