@@ -1,0 +1,318 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    overflow-y: scroll;
+}
+
+/* Set a background color for the entire page */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Style for the main wrapper */
+#wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    width: auto;
+    margin: 0;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Style for the header */
+header {
+    background-color: #333;
+    padding: 0px;
+    text-align: center;
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+}
+
+h3 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    font-size: 2.0em;
+}
+
+h4 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    font-size: 1.5em;
+}
+
+p {
+    max-width: 920px;
+    margin-left: 40px;
+    margin-right: 100px;
+    line-height: 1.5;
+}
+
+/* Style for the left column */
+#leftcolumn {
+    width: 250px;
+    flex: 0 0 250px;
+    background-color: #333;
+    color: #fff;
+    padding-top: 0px;
+    padding-right: 0px;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 2;
+}
+
+#leftcolumn button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* Style for the navigation menu */
+#leftcolumn nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#leftcolumn nav li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#leftcolumn nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Style for the dropdown content */
+.dropdown-content {
+    display: none;
+    margin-top: 0px;
+    position: absolute;
+    background-color: #444;
+    min-width: 280px;
+    z-index: 1;
+    left: 100%;
+    top: 0;
+}
+.dropdown-content a {
+    margin-top: 0px;
+    padding: 10px;
+    color: #fff;
+    display: block;
+    text-decoration: none;
+}
+
+/* Hover effect for the button and dropdown content */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* cart button */
+.cartButton {
+    text-decoration: none;
+    display: inline-block;
+    width: 210px !important;
+    margin: 20px;
+    color: #fff;
+}
+.cartButtonText {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Style for the right column */
+#rightcolumn {
+    flex: 1;
+    padding: 10px;
+    padding-left: 300px;
+    width: 90%;
+    min-height: 100vh;
+}
+
+#rightcolumn button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    width: 150px;
+    margin-top: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#rightcolumn button[name="checkout"] {
+    background-color: #ffd700;
+    color: #000000;
+    padding: 12px 20px;
+    border: none;
+    width: 304px;
+    margin-left: 40px;
+    margin-top: 4px;
+    border-radius: 4px;
+    cursor: pointer; 
+}
+
+
+/* Style for the content inside the right column */
+.content img {
+    max-width: 100%;
+    height: auto;
+}
+
+input[type=number], select {
+    min-width: 40px;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:Arial;
+}
+
+.orderStatusSelect {
+    width: 40px;
+}
+
+/* Style for the content inside the right column */
+.content img {
+    max-width: 100%;
+    height: auto;
+}
+.contactusMessage {
+    text-align: left;
+}
+
+
+input[type=text], select {
+    width: 498px;
+    min-width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:Arial;
+}
+textarea {
+    resize: none;
+    width: 1000px;
+    max-width: 1000px;
+    min-height: 150px;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:Arial;
+}
+.textareaOverride{
+    resize: none;
+    width: 1000px;
+    max-width: 1000px;
+    min-height: 150px;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family:Arial;
+}
+
+/* Style for the footer */
+footer {
+    background-color: #555555;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    margin-top: auto;
+    bottom: 0px;
+    width: 100%;
+    z-index: 1;
+}
+
+footer small {
+    color: #fff;
+    padding-left: 270px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    padding-left: 270px;
+}
+table {
+    margin-left: 40px;
+}
+.adminTable {
+    margin-left: 40px;
+    margin-top: 100px;
+    min-width: 800px;
+}
+
+
+
+/* Style for the plus-minus-input */
+.plus-minus-input button,
+.plus-minus-input input[type="number"] {
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-family: Arial;
+  height: auto; /* Adjust if necessary to fit the table row height */
+}
+
+/* Styles specifically for the input */
+.plus-minus-input input[type="number"] {
+  margin: 0; /* No additional margin is necessary within a table cell */
+  min-width: 40px;
+}
+
+/* Hide the default spin buttons in Chrome */
+.plus-minus-input input[type=number]::-webkit-inner-spin-button,
+.plus-minus-input input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Adjust the radius for left and right buttons, if they are the first/last element in the cell */
+.plus-minus-input button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.plus-minus-input button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+/* Remove focus outline on click in Chrome */
+.plus-minus-input button:focus {
+  outline: none;
+}
