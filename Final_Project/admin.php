@@ -10,22 +10,50 @@ if (mysqli_connect_errno()) {
     die('Connection error: ' . mysqli_connect_error());
 }
 
-$sql = "SELECT product_name, quantity FROM cart";
+// SQL to join the two tables on the ID column and select the necessary columns
+$sql = "SELECT ol.ID, ol.customername, ql.AQ1, ql.AQ2, ql.AQ3, ql.CQ1, ql.CQ2, ql.CQ3, ql.TQ1, ql.TQ2, ql.TQ3 
+        FROM order_list AS ol 
+        INNER JOIN order_list_quantity AS ql 
+        ON ol.ID = ql.ID";
+
+// Execute the query
 $result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $products[] = [
-            'product' => $row["product_name"],
-            'quantity' => $row["quantity"]
+
+// Initialize an empty array to store orders
+$orders = array();
+
+// Fetch the rows from the result set
+if ($result && $result->num_rows > 0) {
+    // Output data of each row
+    while($row = $result->fetch_assoc()) {
+        // Concatenate the quantities into a single string
+        $quantities = implode(", ", array_slice($row, 2)); // Get all quantity columns and make a comma-separated string
+        // Append the data to the orders array
+        $orders[] = [
+            'ID' => $row['ID'],
+            'customername' => $row['customername'],
+            'quantities' => $quantities
         ];
     }
 } else {
-    echo "No products found.";
+    echo "0 results";
 }
+
+// Close the connection
+$conn->close();
+
+// You can now use $orders as needed
+// foreach ($orders as $order) {
+//     echo "ID: " . $order['ID'] . " - Customer Name: " . $order['customername'] . " - Quantities: " . $order['quantities'] . PHP_EOL;
+// }
+
 ?>
 
+
+
+
 <script>
-    var phpData = <?php echo json_encode($products); ?>;
+    var phpData = <?php echo json_encode($orders); ?>;
 </script>
 
 <!DOCTYPE html>
@@ -33,7 +61,7 @@ if ($result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <title>Electronic shop</title>
-    <link rel="stylesheet" type="text/css" href="styles/catalog.css">
+    <link rel="stylesheet" type="text/css" href="styles/admin.css">
     <script src="javascript/dynamictable_admin.js"></script>
 </head>
 <body>
@@ -61,10 +89,10 @@ if ($result->num_rows > 0) {
                 <thead>
                     <tr>
                         <th>Order ID</th>
+                        <th>Name</th>
                         <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Status</th> <!-- Add this line -->
+                        <th>Status</th>
+                        <th>Operation</th> <!-- Add this line -->
                     </tr>
                 </thead>
                 <tbody>
