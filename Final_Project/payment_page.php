@@ -67,7 +67,7 @@ if (isset($_POST['checkout'])) {
                     <td>Contact:</td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="emailInput" name="cEmail" placeholder="Email" novalidate></td>
+                    <td><input type="text" id="emailInput" name="cEmail" placeholder="Email: [yourname@company.com]" novalidate></td>
                 </tr>
             </table>
             <table class=adminTable>
@@ -75,22 +75,22 @@ if (isset($_POST['checkout'])) {
                     <td>Shipping Address:</td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cCountry" placeholder="Country/Region"></td>
+                    <td><input type="text" name="cCountry" placeholder="Country/Region: [Singapore]"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cName" placeholder="Name"></td>
+                    <td><input type="text" name="cName" placeholder="Name: [John Doe]"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cAddress" placeholder="Address"></td>
+                    <td><input type="text" name="cAddress" placeholder="Address: [123 Apple St.]"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cApartment" placeholder="Apartment, suite, etc. (optional)"></td>
+                    <td><input type="text" name="cApartment" placeholder="Apartment, suite, etc. (optional): [#04-05]"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="postalCodeInput" name="cPostalCode" placeholder="Postal code" oninput="numericInput(event, 6)"></td>
+                    <td><input type="text" id="postalCodeInput" name="cPostalCode" placeholder="Postal code: [123456]" oninput="numericInput(event, 6)"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="phoneInput" name="cPhone" placeholder="Phone" oninput="numericInput(event, 8)"></td>
+                    <td><input type="text" id="phoneInput" name="cPhone" placeholder="Phone number: [12345678]" oninput="numericInput(event, 8)"></td>
                 </tr>
                 <tr>
                     <td><button type = "submit" name = "checkout"><strong>Check out Now!</strong></button></td>
