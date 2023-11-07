@@ -51,78 +51,81 @@ if (isset($_POST['confirm'])) {
     $result = $conn->query($sql);
 
     if ($result) {
-        $insertedCount = 0;
-        $lastInsertedID = null;
-    
+        $first = true;
         while ($row = $result->fetch_assoc()) {
             $price = $row['price'];
             $itemsArray = explode(' ', $row['item']);
-            $first = False;
+            
             foreach ($itemsArray as $item) {
-                if ($first = False ) {
-                    $sql = "INSERT INTO order_list_price ('$item') VALUES (?)";
+                // echo $item;
+                if ($first) {
+                    $sql = "INSERT INTO order_list_price (`$item`) VALUES (?)";
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("d", $price);
-    
+                
                     if ($stmt->execute()) {
-                        echo "inserted";
-                        $first = True;
+                        // echo "first inserted", $price;
+                        $first = false; 
                     } else {
                         echo "Error copying price for '$item': " . $conn->error . "<br>";
                     }
                 } else {
-                    $sql = "UPDATE order_list_price SET column_name = ? WHERE id = (SELECT id FROM order_list_price ORDER BY created_at DESC LIMIT 1)";
+                    $sql = "UPDATE order_list_price SET $item = ? WHERE id = (SELECT id FROM order_list_price ORDER BY id DESC LIMIT 1)";
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("d", $price);
     
                     if ($stmt->execute()) {
-                        echo "inserted";
+                        // echo "inserted",$price;
                     } else {
                         echo "Error updating price for '$item': " . $conn->error . "<br>";
                     }
                 }
             }
         }
-        if ($insertedCount > 0) {
-            echo "Prices copied successfully for $insertedCount items.<br>";
-        } else {
-            echo "No prices were copied.<br>";
-        }
     } else {
         echo "No products found.";
     }
     
-
-
-
-
-
     $sql = 'SELECT product_name, quantity FROM cart';
     $result = $conn->query($sql);
 
     if ($result) {
+        $first = true;
         while ($row = $result->fetch_assoc()) {
-            $product_name = $row['product_name'];
             $quantity = $row['quantity'];
-            $product_namesArray = explode(' ', $item);
-    
-            foreach ($product_namesArray as $product_name) {
-                echo "Copying quantity for '$product_name' with value '$quantity'.<br>";
-
-                $sql = "INSERT INTO order_list_quantity ('$product_name') VALUES (?)";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("d", $quantity);
-    
-                if ($stmt->execute()) {
-                    echo "quantity for '$product_name' copied successfully.<br>";
+            $itemsArray = explode(' ', $row['product_name']);
+            foreach ($itemsArray as $item) {
+                // echo $item ;
+                echo '<br>';
+                if ($first) {
+                    $sql = "INSERT INTO order_list_quantity (`$item`) VALUES (?)";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("i", $quantity);
+                
+                    if ($stmt->execute()) {
+                        echo "first inserted", $quantity;
+                        $first = false;  
+                    } else {
+                        echo "Error copying quantity for '$item': " . $conn->error . "<br>";
+                    }
                 } else {
-                    echo "Error copying quantity for '$product_name': " . $conn->error . "<br>";
+                    echo $item, "<br>";
+                    $sql = "UPDATE order_list_quantity SET $item = ? WHERE id = (SELECT id FROM order_list_price ORDER BY id DESC LIMIT 1)";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("i", $quantity);
+    
+                    if ($stmt->execute()) {
+                        echo "inserted",$quantity;
+                    } else {
+                        echo "Error updating quantity for '$item': " . $conn->error . "<br>";
+                    }
                 }
             }
         }
     } else {
         echo "No products found.";
     }
+    
     
     $conn->close();
 }
