@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
 <body>
     <div id="wrapper">
         <div id="leftcolumn">
-            <button class="cartButton"><a class="cartButtonText" href="shopping_cart.html">CART</a></button>
+            <button class="cartButton"><a class="cartButtonText" href="shopping_cart.php">CART</a></button>
             <nav> 
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
                             <a href = "techacc\category_techacc.html">Accessory</a>
                         </div>
                     </li>
-                    <li><a href="contact_us.html">Contact Us</a></li>
+                    <li><a href="contact_us.php">Contact Us</a></li>
                 </ul>
             </nav>
         </div>

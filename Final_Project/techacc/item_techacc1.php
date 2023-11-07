@@ -70,7 +70,7 @@ if (isset($_POST["checkout"])) {
         if ($stmt->execute()) {
             $sql = "SELECT * FROM cart";
             $result = $conn->query($sql);
-            header('Location: ../order_sum.html');
+            header('Location: ../order_sum.php');
         } else {
             echo "Error: " . $stmt->error;
         }
@@ -106,7 +106,7 @@ $conn->close();
                                 <a href = "..\techacc\category_techacc.html">Accessory</a>
                             </div>
                         </li>
-                        <li><a href="..\contact_us.html">Contact Us</a></li>
+                        <li><a href="..\contact_us.php">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>

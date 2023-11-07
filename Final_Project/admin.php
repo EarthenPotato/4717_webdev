@@ -82,7 +82,7 @@ $conn->close();
                                 <a href = "techacc\category_techacc.html">Accessory</a>
                             </div>
                         </li>
-                        <li><a href="contact_us.html">Contact Us</a></li>
+                        <li><a href="contact_us.php">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>

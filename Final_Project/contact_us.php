@@ -8,7 +8,7 @@
 <body>
     <div id="wrapper">
         <div id="leftcolumn">
-            <button class="cartButton" onclick="location.href='shopping_cart.html'"><a class="cartButtonText">CART</a></button>
+            <button class="cartButton" onclick="location.href='shopping_cart.php'"><a class="cartButtonText">CART</a></button>
             <nav> 
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -20,7 +20,7 @@
                             <a href = "techacc\category_techacc.html">Accessory</a>
                         </div>
                     </li>
-                    <li><a href="contact_us.html">Contact Us</a></li>
+                    <li><a href="contact_us.php">Contact Us</a></li>
                 </ul>
             </nav>
         </div>

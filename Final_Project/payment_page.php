@@ -17,7 +17,7 @@
                 <ul>
                     <!-- <li><a href="index.html">Home</a></li>
                     <li><a href="about_us.html">About Us</a></li>
-                    <li><a href="contact_us.html">Contact Us</a></li>
+                    <li><a href="contact_us.php">Contact Us</a></li>
                     <li><a href="login.html">Login</a></li> -->
                 </ul>
             </nav>
@@ -48,7 +48,7 @@
                 <input type="text" name="customerPhone" placeholder="Phone">
             </div>
             <div>
-                <button type="submit"><a href="order_sum.html">Check Out</a></button>
+                <button type="submit"><a href="order_sum.php">Check Out</a></button>
             </div>
         </div>
     </div>
