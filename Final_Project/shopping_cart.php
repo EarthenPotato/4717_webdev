@@ -37,7 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
 
     $sql = "UPDATE cart SET quantity = 0 WHERE product_name = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("is", $quantity, $product_name);
+
+    $stmt->bind_param("s", $productToDelete);
 
     if ($stmt->execute()) {
         echo 'success';
