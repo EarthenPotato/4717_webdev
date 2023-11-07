@@ -41,7 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     $stmt->bind_param("s", $productToDelete);
 
     if ($stmt->execute()) {
-        echo 'success';
+        header('Location: shopping_cart.html');
+        // echo 'success';
     } else {
         echo 'error';
     }
