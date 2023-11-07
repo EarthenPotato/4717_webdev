@@ -55,13 +55,14 @@ if (isset($_POST['confirm'])) {
             $item = $row['item'];
             $price = $row['price'];
             $itemsArray = explode(' ', $item);
+    
             foreach ($itemsArray as $item) {
-                // Debug console log
                 echo "Copying price for '$item' with value '$price'.<br>";
-
-                // Use prepared statements to prevent SQL injection
-                $stmt = $conn->prepare("UPDATE order_list_price SET item = ? WHERE price = ?");
-                $stmt->bind_param("ss", $item, $price);
+    
+                $sql = "INSERT INTO order_list_price (`$item`) VALUES (?)";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("d", $price); 
+    
                 if ($stmt->execute()) {
                     echo "Price for '$item' copied successfully.<br>";
                 } else {
@@ -72,8 +73,6 @@ if (isset($_POST['confirm'])) {
     } else {
         echo "No products found.";
     }
-    
-    // 2. Query for cart items and copy quantities
     $sql = 'SELECT product_name, quantity FROM cart';
     $result = $conn->query($sql);
 
@@ -81,16 +80,17 @@ if (isset($_POST['confirm'])) {
         while ($row = $result->fetch_assoc()) {
             $product_name = $row['product_name'];
             $quantity = $row['quantity'];
-            $product_nameArray = explode(' ', $product_name);
-            foreach ($product_nameArray as $product_name) {
-                // Debug console log
+            $product_namesArray = explode(' ', $item);
+    
+            foreach ($product_namesArray as $product_name) {
                 echo "Copying quantity for '$product_name' with value '$quantity'.<br>";
 
-                // Use prepared statements to prevent SQL injection
-                $stmt = $conn->prepare("UPDATE order_list_quantity SET product_name = ? WHERE quantity = ?");
-                $stmt->bind_param("ss", $product_name, $quantity);
+                $sql = "INSERT INTO order_list_quantity (`$product_name`) VALUES (?)";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("d", $quantity);
+    
                 if ($stmt->execute()) {
-                    echo "Quantity for '$product_name' copied successfully.<br>";
+                    echo "quantity for '$product_name' copied successfully.<br>";
                 } else {
                     echo "Error copying quantity for '$product_name': " . $conn->error . "<br>";
                 }
@@ -99,6 +99,7 @@ if (isset($_POST['confirm'])) {
     } else {
         echo "No products found.";
     }
+    
     $conn->close();
 }
 ?>
@@ -180,9 +181,9 @@ if (isset($_POST['confirm'])) {
             </div>
         </div>
     </div>
-    <footer>
+    <!-- <footer>
         <small><i>Copyright &copy; 2023 Electronic Shop<br>
         <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com</a></i><br>
-    </footer>
+    </footer> -->
 </body>
 </html>
