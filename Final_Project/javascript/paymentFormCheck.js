@@ -74,3 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+function numericInput(){
+    var input = document.getElementById('numericInput');
+    input.value = input.value.replace(/\D/g, ''); // Remove all non-digits
+}
