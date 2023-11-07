@@ -110,12 +110,12 @@ if (isset($_POST['confirm'])) {
                     }
                 } else {
                     echo $item, "<br>";
-                    $sql = "UPDATE order_list_quantity SET $item = ? WHERE id = (SELECT id FROM order_list_price ORDER BY id DESC LIMIT 1)";
+                    $sql = "UPDATE order_list_quantity SET $item = ? WHERE id = (SELECT id FROM order_list_quantity ORDER BY id DESC LIMIT 1)";
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("i", $quantity);
     
                     if ($stmt->execute()) {
-                        echo "inserted",$quantity;
+                        // echo "inserted",$quantity;
                     } else {
                         echo "Error updating quantity for '$item': " . $conn->error . "<br>";
                     }
