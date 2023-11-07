@@ -85,10 +85,10 @@ if (isset($_POST['checkout'])) {
                     <td><input type="text" name="cApartment" placeholder="Apartment, suite, etc. (optional)"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="numericInput" name="cPostalCode" placeholder="Postal code" onchange = "numericInput()"></td>
+                    <td><input type="text" id="postalCodeInput" name="cPostalCode" placeholder="Postal code" oninput="numericInput(event, 6)"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="numericInput" name="cPhone" placeholder="Phone" onchange = "numericInput()"></td>
+                    <td><input type="text" id="phoneInput" name="cPhone" placeholder="Phone" oninput="numericInput(event, 8)"></td>
                 </tr>
                 <tr>
                     <td><button type = "submit" name = "checkout"><strong>Check out Now!</strong></button></td>
