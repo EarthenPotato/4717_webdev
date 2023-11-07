@@ -79,9 +79,7 @@ $conn->close();
                     <div class="textboxGroup">
                         <div>
                             <input type="text" name="contact_name" placeholder="Name" required>
-                            <input type="email" name="contact_email" placeholder="Email" required
-                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                            title="Please enter a valid email address.">
+                            <input type="email" name="contact_email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,24}" title="Please enter a valid email address.">
                         </div>
                         <div>
                             <textarea name="contact_message" placeholder="Message" required></textarea>
