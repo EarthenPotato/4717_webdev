@@ -32,32 +32,37 @@ if ($result->num_rows > 0) {
     echo "No products found.";
 }
 
-$sql = "SELECT name, address, postal_code, phone_number, email FROM customers ORDER BY id DESC LIMIT 1";
+$sql = "SELECT name, address, postal, phone_number, email FROM customers ORDER BY id DESC LIMIT 1";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while ($shipping_info = $result->fetch_assoc()){
     $name = $shipping_info['name'];
     $address = $shipping_info['address'];
-    $postal = $shipping_info['postal_code'];
+    $postal = $shipping_info['postal'];
     $phone_number = $shipping_info['phone_number'];
     $email = $shipping_info['email'];
     }
 }
 
 if (isset($_POST['confirm'])) {
-
+    echo "Confirmation POST request received.<br>";
     $sql = 'SELECT item, price FROM product';
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
+    if ($result) {
         while ($row = $result->fetch_assoc()) {
             $item = $row['item'];
             $price = $row['price'];
             $itemsArray = explode(' ', $item);
             foreach ($itemsArray as $item) {
-                $insertSql = "UPDATE order_list_price SET $item = $price";
-                if ($conn->query($insertSql) === TRUE) {
+                // Debug console log
+                echo "Copying price for '$item' with value '$price'.<br>";
+
+                // Use prepared statements to prevent SQL injection
+                $stmt = $conn->prepare("UPDATE order_list_price SET item = ? WHERE price = ?");
+                $stmt->bind_param("ss", $item, $price);
+                if ($stmt->execute()) {
                     echo "Price for '$item' copied successfully.<br>";
                 } else {
                     echo "Error copying price for '$item': " . $conn->error . "<br>";
@@ -67,32 +72,35 @@ if (isset($_POST['confirm'])) {
     } else {
         echo "No products found.";
     }
-
+    
+    // 2. Query for cart items and copy quantities
     $sql = 'SELECT product_name, quantity FROM cart';
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
+    if ($result) {
         while ($row = $result->fetch_assoc()) {
             $product_name = $row['product_name'];
             $quantity = $row['quantity'];
             $product_nameArray = explode(' ', $product_name);
             foreach ($product_nameArray as $product_name) {
-                $insertSql = "UPDATE order_list_quantity SET $product_name = $quantity";
-                if ($conn->query($insertSql) === TRUE) {
-                    echo "Price for '$product_name' copied successfully.<br>";
+                // Debug console log
+                echo "Copying quantity for '$product_name' with value '$quantity'.<br>";
+
+                // Use prepared statements to prevent SQL injection
+                $stmt = $conn->prepare("UPDATE order_list_quantity SET product_name = ? WHERE quantity = ?");
+                $stmt->bind_param("ss", $product_name, $quantity);
+                if ($stmt->execute()) {
+                    echo "Quantity for '$product_name' copied successfully.<br>";
                 } else {
-                    echo "Error copying price for '$product_name': " . $conn->error . "<br>";
+                    echo "Error copying quantity for '$product_name': " . $conn->error . "<br>";
                 }
             }
         }
     } else {
         echo "No products found.";
     }
-
     $conn->close();
 }
-
-
 ?>
 
 <script>
