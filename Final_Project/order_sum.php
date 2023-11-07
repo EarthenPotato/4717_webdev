@@ -1,4 +1,4 @@
-<php?
+<?php
 $host = "localhost";
 $dbname = "electroshock";
 $username = "electroshock";
@@ -9,7 +9,47 @@ $conn = mysqli_connect($host, $username, $password, $dbname);
 if (mysqli_connect_errno()) {
     die('Connection error: ' . mysqli_connect_error());
 }
+
+$sql = "SELECT c.product_name, c.quantity, p.price
+        FROM cart c
+        LEFT JOIN product p ON SUBSTRING(c.product_name, 1, 1) = SUBSTRING(p.item, 1, 1)
+                              AND SUBSTRING(c.product_name, 3, 1) = SUBSTRING(p.item, 3, 1)";
+
+
+$result = $conn->query($sql);
+
+$products = [];
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $products[] = [
+            'product' => $row["product_name"],
+            'quantity' => $row["quantity"],
+            'price' => $row["price"]
+        ];
+    }
+} else {
+    echo "No products found.";
+}
+
+$sql = "SELECT name, address, postal, phone_number, email FROM customers ORDER BY id DESC LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($shipping_info = $result->fetch_assoc()){
+    $name = $shipping_info['name'];
+    $address = $shipping_info['address'];
+    $postal = $shipping_info['postal'];
+    $phone_number = $shipping_info['phone_number'];
+    $email = $shipping_info['email'];
+    }
+}
 ?>
+
+<script>
+    var phpData = <?php echo json_encode($products); ?>;
+</script>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,38 +79,44 @@ if (mysqli_connect_errno()) {
             </div>
         <div id="rightcolumn">
             <div class="content">
-                <h3>Order Detail</h3>
+            <h3>Order Detail</h3>
                 <h4>Order Number</h4>
                 <h4>Order Date</h4>
-                <table name ="order_summary">
+                <table id="orderTable" >
+                    <thead>
                     <tr>
-                        <td>Price</td>
-                        <td>$ php calc</td>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
                     </tr>
-                    <tr>
-                        <td>quantity</td>
-                        <td>$ php calc</td>
-                    </tr>
-                    <tr>
-                        <td>subtotal </td>
-                        <td>$ php calc</td>
-                    </tr>
-                    <tr>
-                        <td>total </td>
-                        <td>$ php calc</td>
-                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
                 </table>
                 <h4>Shipping Information</h4>
-                <table name = "Shipping">
-                    <tr>
-                        <td>Name</td>
-                        <td> buyer name</td>
-                    </tr>
-                    <tr>
-                        <td>Address</td>
-                        <td> buyer address</td>
-                    </tr>
-                </table>
+                    <table name="Shipping">
+                        <tr>
+                            <td>Name</td>
+                            <td><?php echo $name; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td><?php echo $address; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Postal Code</td>
+                            <td><?php echo $postal; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number</td>
+                            <td><?php echo $phone_number; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><?php echo $email; ?></td>
+                        </tr>
+                    </table>
             </div>
         </div>
     </div>
