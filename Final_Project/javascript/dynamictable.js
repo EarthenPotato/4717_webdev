@@ -25,17 +25,26 @@ document.addEventListener('DOMContentLoaded', function() {
             row.insertCell(2).textContent = order.quantity;
             row.insertCell(3).textContent = order.price * order.quantity;
             
-            // Create a delete button for the row
+            const form = document.createElement('form');
+            form.method = 'post';
+            form.action = 'shopping_cart.php';
+
+            const productInput = document.createElement('input');
+            productInput.type = 'hidden';
+            productInput.name = 'product';
+            productInput.value = order.product;
+            form.appendChild(productInput);
+
+            // Create a delete button
             const deleteButton = document.createElement('button');
+            deleteButton.name ="delete"
             deleteButton.textContent = 'Delete';
-            row.insertCell(4).appendChild(deleteButton);
+            deleteButton.type = 'submit';
+            form.appendChild(deleteButton);
+
+            // Add the form with the delete button to the row
+            row.insertCell(4).appendChild(form);
             
-            // Add a click event handler to the delete button
-            deleteButton.addEventListener('click', function() {
-                // Remove the corresponding row from the table
-                table.deleteRow(row.rowIndex);
-                // You may want to update your cart or send a request to the server here
-            });
         }
     }
 });

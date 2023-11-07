@@ -31,6 +31,23 @@ if ($result->num_rows > 0) {
 } else {
     echo "No products found.";
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
+    $productToDelete = $_POST['product'];
+
+    $sql = "UPDATE cart SET quantity = 0 WHERE product_name = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("is", $quantity, $product_name);
+
+    if ($stmt->execute()) {
+        echo 'success';
+    } else {
+        echo 'error';
+    }
+
+    $stmt->close();
+    $conn->close();
+}
 ?>
 
 <script>
@@ -72,7 +89,7 @@ if ($result->num_rows > 0) {
                 <table id="orderTable" >
                     <thead>
                     <tr>
-                        <th>Order ID</th>
+                        <th></th>
                         <th>Product</th>
                         <th>Quantity</th>
                         <th>Price</th>
