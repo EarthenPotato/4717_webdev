@@ -67,28 +67,28 @@ if (isset($_POST['checkout'])) {
                     <td>Email:</td>
                 </tr>
                 <tr>
-                    <td><input type="email" id="emailInput" name="cEmail" placeholder="Email" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"></td>
+                    <td><input type="text" id="emailInput" name="cEmail" placeholder="Email" novalidate></td>
                 </tr>
                 <tr>
                     <td>Shipping Address:</td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cCountry" placeholder="Country/Region" required pattern="[A-Za-z\s]{3,}" title="Country name should only contain letters and spaces."></td>
+                    <td><input type="text" name="cCountry" placeholder="Country/Region"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cName" placeholder="Name" required pattern="[A-Za-z\s]{3,}" title="Country name should only contain letters and spaces."></td>
+                    <td><input type="text" name="cName" placeholder="Name"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cAddress" placeholder="Address" required></td>
+                    <td><input type="text" name="cAddress" placeholder="Address"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="cApartment" placeholder="Apartment, suite, etc. (optional)"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cPostalCode" placeholder="Postal code" required pattern="\d{6}" title="Postal code should be up to 6 digits long."></td>
+                    <td><input type="text" name="cPostalCode" placeholder="Postal code"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cPhone" placeholder="Phone" required pattern="\d{8}" title="Phone number must be 8 digits."></td>
+                    <td><input type="text" name="cPhone" placeholder="Phone"></td>
                 </tr>
                 <tr>
                     <td><button type = "submit" name = "checkout"><strong>Check out Now!</strong></button></td>
