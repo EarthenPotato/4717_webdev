@@ -51,28 +51,38 @@ if (isset($_POST['confirm'])) {
     $result = $conn->query($sql);
 
     if ($result) {
+        $insertedCount = 0; // Counter to keep track of the number of successful inserts
+
         while ($row = $result->fetch_assoc()) {
-            $item = $row['item'];
             $price = $row['price'];
-            $itemsArray = explode(' ', $item);
-    
+            $itemsArray = explode(' ', $row['item']);
+
             foreach ($itemsArray as $item) {
-                echo "Copying price for '$item' with value '$price'.<br>";
-    
                 $sql = "INSERT INTO order_list_price (`$item`) VALUES (?)";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("d", $price); 
-    
+                $stmt->bind_param("d", $price);
+
                 if ($stmt->execute()) {
-                    echo "Price for '$item' copied successfully.<br>";
+                    $insertedCount++;
                 } else {
                     echo "Error copying price for '$item': " . $conn->error . "<br>";
                 }
             }
         }
+
+        if ($insertedCount > 0) {
+            echo "Prices copied successfully for $insertedCount items.<br>";
+        } else {
+            echo "No prices were copied.<br>";
+        }
     } else {
         echo "No products found.";
     }
+
+
+
+
+
     $sql = 'SELECT product_name, quantity FROM cart';
     $result = $conn->query($sql);
 
