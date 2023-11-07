@@ -37,7 +37,7 @@ if (isset($_POST['checkout'])) {
 <head>
     <meta charset="UTF-8">
     <title>Payment Page</title>
-    <link rel="stylesheet" type="text/css" href="styles\payment_page.css">
+    <link rel="stylesheet" type="text/css" href="styles/payment_page.css">
     <script src="javascript/paymentFormCheck.js"></script>
 </head>
 <body>
@@ -50,12 +50,12 @@ if (isset($_POST['checkout'])) {
                     <li class="dropdown">
                         <a href="catalog.html">Catalog</a>
                         <div class="dropdown-content">
-                            <a href = "..\audio\category_audio.html">Audio</a>
-                            <a href = "..\computer\category_computer.html">Computer</a>
-                            <a href = "..\techacc\category_techacc.html">Accessory</a>
+                            <a href = "audio\category_audio.html">Audio</a>
+                            <a href = "computer\category_computer.html">Computer</a>
+                            <a href = "techacc\category_techacc.html">Accessory</a>
                         </div>
                     </li>
-                    <li><a href="..\contact_us.php">Contact Us</a></li>
+                    <li><a href="contact_us.php">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
