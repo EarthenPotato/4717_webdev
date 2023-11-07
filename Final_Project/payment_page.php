@@ -59,10 +59,10 @@ if (isset($_POST['checkout'])) {
                 </ul>
             </nav>
         </div>
-    
         <div id="rightcolumn">
+            <h3>Checkout</h3>
         <form id="paymentForm" action="payment_page.php" method="post">
-            <table border=1>
+            <table class=adminTable>
                 <tr>
                     <td>Email:</td>
                 </tr>
@@ -85,10 +85,10 @@ if (isset($_POST['checkout'])) {
                     <td><input type="text" name="cApartment" placeholder="Apartment, suite, etc. (optional)"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cPostalCode" placeholder="Postal code"></td>
+                    <td><input type="text" id="postalCodeInput" name="cPostalCode" placeholder="Postal code" oninput="numericInput(event, 6)"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cPhone" placeholder="Phone"></td>
+                    <td><input type="text" id="phoneInput" name="cPhone" placeholder="Phone" oninput="numericInput(event, 8)"></td>
                 </tr>
                 <tr>
                     <td><button type = "submit" name = "checkout"><strong>Check out Now!</strong></button></td>

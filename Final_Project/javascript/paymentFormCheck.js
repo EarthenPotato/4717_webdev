@@ -74,3 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+function numericInput(event, maxLength) {
+    // Remove all non-digit characters
+    var numericValue = event.target.value.replace(/\D/g, '');
+    // Limit the length of the input based on maxLength parameter
+    event.target.value = numericValue.substring(0, maxLength);
+}
