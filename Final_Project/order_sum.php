@@ -32,14 +32,14 @@ if ($result->num_rows > 0) {
     echo "No products found.";
 }
 
-$sql = "SELECT name, address, postal, phone_number, email FROM customers ORDER BY id DESC LIMIT 1";
+$sql = "SELECT name, address, postal_code, phone_number, email FROM customers ORDER BY id DESC LIMIT 1";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while ($shipping_info = $result->fetch_assoc()){
     $name = $shipping_info['name'];
     $address = $shipping_info['address'];
-    $postal = $shipping_info['postal'];
+    $postal = $shipping_info['postal_code'];
     $phone_number = $shipping_info['phone_number'];
     $email = $shipping_info['email'];
     }
@@ -137,6 +137,7 @@ if (isset($_POST['confirm'])) {
             </div>
         <div id="rightcolumn">
             <div class="content">
+            <form action="order_sum.php" method="post">
                 <h3>Order Detail</h3>
                 <h4>Order Number</h4>
                 <h4>Order Date</h4>
