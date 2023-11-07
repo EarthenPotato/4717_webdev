@@ -51,25 +51,38 @@ if (isset($_POST['confirm'])) {
     $result = $conn->query($sql);
 
     if ($result) {
-        $insertedCount = 0; // Counter to keep track of the number of successful inserts
-
+        $insertedCount = 0;
+        $lastInsertedID = null;
+    
         while ($row = $result->fetch_assoc()) {
             $price = $row['price'];
             $itemsArray = explode(' ', $row['item']);
-
+            $first = False;
             foreach ($itemsArray as $item) {
-                $sql = "INSERT INTO order_list_price (`$item`) VALUES (?)";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("d", $price);
-
-                if ($stmt->execute()) {
-                    $insertedCount++;
+                if ($first = False ) {
+                    $sql = "INSERT INTO order_list_price ('$item') VALUES (?)";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("d", $price);
+    
+                    if ($stmt->execute()) {
+                        echo "inserted";
+                        $first = True;
+                    } else {
+                        echo "Error copying price for '$item': " . $conn->error . "<br>";
+                    }
                 } else {
-                    echo "Error copying price for '$item': " . $conn->error . "<br>";
+                    $sql = "UPDATE order_list_price SET column_name = ? WHERE id = (SELECT id FROM order_list_price ORDER BY created_at DESC LIMIT 1)";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("d", $price);
+    
+                    if ($stmt->execute()) {
+                        echo "inserted";
+                    } else {
+                        echo "Error updating price for '$item': " . $conn->error . "<br>";
+                    }
                 }
             }
         }
-
         if ($insertedCount > 0) {
             echo "Prices copied successfully for $insertedCount items.<br>";
         } else {
@@ -78,6 +91,7 @@ if (isset($_POST['confirm'])) {
     } else {
         echo "No products found.";
     }
+    
 
 
 
@@ -95,7 +109,7 @@ if (isset($_POST['confirm'])) {
             foreach ($product_namesArray as $product_name) {
                 echo "Copying quantity for '$product_name' with value '$quantity'.<br>";
 
-                $sql = "INSERT INTO order_list_quantity (`$product_name`) VALUES (?)";
+                $sql = "INSERT INTO order_list_quantity ('$product_name') VALUES (?)";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("d", $quantity);
     
