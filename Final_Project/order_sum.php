@@ -1,3 +1,16 @@
+<php?
+$host = "localhost";
+$dbname = "electroshock";
+$username = "electroshock";
+$password = "electroshock";
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+if (mysqli_connect_errno()) {
+    die('Connection error: ' . mysqli_connect_error());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

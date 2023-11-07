@@ -1,3 +1,38 @@
+<?php 
+$host = "localhost";
+$dbname = "electroshock";
+$username = "electroshock";
+$password = "electroshock";
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+if (mysqli_connect_errno()) {
+    die('conn error: ' . mysqli_connect_error());
+}
+
+if (isset($_POST['checkout'])) {
+    // Retrieve form data and sanitize
+    $cCountry = mysqli_real_escape_string($conn, $_POST['cCountry']);
+    $cFirstName = mysqli_real_escape_string($conn, $_POST['cFirstName']);
+    $cLastName = mysqli_real_escape_string($conn, $_POST['cLastName']);
+    $cAddress = mysqli_real_escape_string($conn, $_POST['cAddress']);
+    $cApartment = mysqli_real_escape_string($conn, $_POST['cApartment']);
+    $cPostalCode = mysqli_real_escape_string($conn, $_POST['cPostalCode']);
+    $cPhone = mysqli_real_escape_string($conn, $_POST['cPhone']);
+
+    // Construct the SQL query
+    $sql = "INSERT INTO c_info (country, name, address, room, postal_code, phone) VALUES ('$cCountry', '$cFirstName', '$cAddress', '$cApartment', '$cPostalCode', '$cPhone')";
+
+    // Execute the SQL query
+    if (mysqli_query($conn, $sql)) {
+        echo "Data inserted successfully.";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +66,7 @@
                     <td>Email:</td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="customerEmail" placeholder="Email"></td>
+                    <td><input type="text" name="cEmail" placeholder="Email"></td>
                 </tr>
             </table>
             <table border=1>
@@ -39,23 +74,22 @@
                     <td colspan="2">Shipping Address:</td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="customerCountry" placeholder="Country/Region"></td>
+                    <td colspan="2"><input type="text" name="cCountry" placeholder="Country/Region"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="customerFirstName" placeholder="First name"></td>
-                    <td><input type="text" name="customerLastName" placeholder="Last name"></td>
+                    <td colspan="2"><input type="text" name="cFirstName" placeholder="First name"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="customerAddress" placeholder="Address"></td>
+                    <td colspan="2"><input type="text" name="cAddress" placeholder="Address"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="customerApartment" placeholder="Apartment, suite, etc. (optional)"></td>
+                    <td colspan="2"><input type="text" name="cApartment" placeholder="Apartment, suite, etc. (optional)"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="customerPostalCode" placeholder="Postal code"></td>
+                    <td colspan="2"><input type="text" name="cPostalCode" placeholder="Postal code"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="customerPhone" placeholder="Phone"></td>
+                    <td colspan="2"><input type="text" name="cPhone" placeholder="Phone"></td>
                 </tr>
                 <tr>
                     <td colspan="2"><button type = "submit" name = "checkout"><strong>Check out Now!</strong></button></td>
