@@ -59,10 +59,10 @@ if (isset($_POST['checkout'])) {
                 </ul>
             </nav>
         </div>
-    
         <div id="rightcolumn">
+            <h3>Checkout</h3>
         <form id="paymentForm" action="payment_page.php" method="post">
-            <table border=1>
+            <table class=adminTable>
                 <tr>
                     <td>Email:</td>
                 </tr>
