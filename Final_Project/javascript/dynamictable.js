@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log(phpData);
 
-    if (phpData.length === 0) {
-        // If the array phpData is empty, display a message
+    const allQuantitiesZero = phpData.every(order => order.quantity === 0);
+
+    if (allQuantitiesZero) {
         const emptyRow = tbody.insertRow();
         const emptyCell = emptyRow.insertCell(0);
-        emptyCell.colSpan = 5; // Span the cell across all columns
+        emptyCell.colSpan = 5;
         emptyCell.textContent = 'Your cart is empty';
     } else {
         for (const order of phpData) {
