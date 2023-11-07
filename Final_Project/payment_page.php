@@ -36,8 +36,9 @@ if (isset($_POST['checkout'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Catalog</title>
+    <title>Payment Page</title>
     <link rel="stylesheet" type="text/css" href="styles\payment_page.css">
+    <script src="javascript/paymentFormCheck.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -60,36 +61,34 @@ if (isset($_POST['checkout'])) {
         </div>
     
         <div id="rightcolumn">
-        <form action="payment_page.php" method="post">
+        <form id="paymentForm" action="payment_page.php" method="post">
             <table border=1>
                 <tr>
                     <td>Email:</td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cEmail" placeholder="Email"></td>
+                    <td><input type="email" id="emailInput" name="cEmail" placeholder="Email" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"></td>
                 </tr>
-            </table>
-            <table border=1>
                 <tr>
                     <td colspan="2">Shipping Address:</td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="cCountry" placeholder="Country/Region"></td>
+                    <td colspan="2"><input type="text" name="cCountry" placeholder="Country/Region" required></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="cName" placeholder="Name"></td>
+                    <td colspan="2"><input type="text" name="cName" placeholder="Name" required></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="cAddress" placeholder="Address"></td>
+                    <td colspan="2"><input type="text" name="cAddress" placeholder="Address" required></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="text" name="cApartment" placeholder="Apartment, suite, etc. (optional)"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="cPostalCode" placeholder="Postal code"></td>
+                    <td colspan="2"><input type="text" name="cPostalCode" placeholder="Postal code" required></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="cPhone" placeholder="Phone"></td>
+                    <td colspan="2"><input type="text" name="cPhone" placeholder="Phone" required></td>
                 </tr>
                 <tr>
                     <td colspan="2"><button type = "submit" name = "checkout"><strong>Check out Now!</strong></button></td>

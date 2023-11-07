@@ -209,7 +209,7 @@ input[type=number], select {
 }
 
 
-input[type=text], select {
+input[type=text] {
     width: 498px;
     min-width: 300px;
     padding: 12px 20px;
@@ -220,6 +220,19 @@ input[type=text], select {
     box-sizing: border-box;
     font-family:Arial;
 }
+
+input[type=email] {
+    width: 498px;
+    min-width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
 textarea {
     resize: none;
     width: 1000px;
