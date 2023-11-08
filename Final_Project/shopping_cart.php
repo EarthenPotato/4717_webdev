@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Electronic shop</title>
+    <title>Shopping Cart</title>
     <link rel="stylesheet" type="text/css" href="styles/catalog.css">
     <script src="javascript/dynamictable.js"></script>
 </head>
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
         </div>
     </div>
     <footer>
-        <small><i>Copyright &copy; 2023 Electronic Shop<br>
+        <small><i>Copyright &copy; 2023 Electroshock<br>
         <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com</a></i><br>
     </footer>
 </body>

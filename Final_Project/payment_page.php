@@ -36,7 +36,7 @@ if (isset($_POST['checkout'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Payment Page</title>
+    <title>Checkout</title>
     <link rel="stylesheet" type="text/css" href="styles/payment_page.css">
     <script src="javascript/paymentFormCheck.js"></script>
 </head>
@@ -99,7 +99,7 @@ if (isset($_POST['checkout'])) {
         </div>
     </div>
     <footer>
-        <small><i>Copyright &copy; 2023 Electronic Shop<br>
+        <small><i>Copyright &copy; 2023 Electroshock<br>
         <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com</a></i><br>
     </footer>
 </body>

@@ -92,7 +92,7 @@ $conn->close();
         </div>
     </div>
     <footer>
-        <small><i>Copyright &copy; 2023 Electronic Shop<br>
+        <small><i>Copyright &copy; 2023 Electroshock<br>
         <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com</a></i><br>
     </footer>
 </body>

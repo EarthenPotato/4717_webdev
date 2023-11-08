@@ -63,7 +63,7 @@ $conn->close();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Electronic shop</title>
+    <title>Admin Page</title>
     <link rel="stylesheet" type="text/css" href="styles/admin.css">
     <script src="javascript/dynamictable_admin.js"></script>
 </head>
@@ -106,7 +106,7 @@ $conn->close();
         </div>
     </div>
     <footer>
-        <small><i>Copyright &copy; 2023 Electronic Shop<br>
+        <small><i>Copyright &copy; 2023 Electroshock<br>
         <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com</a></i><br>
     </footer>
 </body>

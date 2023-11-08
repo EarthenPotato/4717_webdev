@@ -75,7 +75,7 @@ $conn->close();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Electronic shop</title>
+    <title>High-Fidelity Stereo Headphones</title>
     <link rel="stylesheet" type="text/css" href="..\styles\catalog.css">
 </head>
 <body>
@@ -129,7 +129,7 @@ $conn->close();
     </div>
 
     <footer>
-        <small><i>Copyright &copy; 2023 Electronic Shop<br>
+        <small><i>Copyright &copy; 2023 Electroshock<br>
         <a href="mailto: daryl.qinbo@heng.jiang.com">daryl.qinbo@heng.jiang.com</a></i><br>
     </footer>
 </body>
