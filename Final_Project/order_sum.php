@@ -129,6 +129,7 @@ if (isset($_POST['confirm'])) {
     $sql = "UPDATE cart SET quantity = 0";
     $result = $conn->query($sql);
     if ($result) {
+        header('Location: thank_you.html') ;
         echo "cart cleared";
     } else {
         echo "Error: " . $conn->error;
