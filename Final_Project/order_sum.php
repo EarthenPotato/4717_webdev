@@ -125,6 +125,14 @@ if (isset($_POST['confirm'])) {
     } else {
         echo "No products found.";
     }
+
+    $sql = "UPDATE cart SET quantity = 0";
+    $result = $conn->query($sql);
+    if ($result) {
+        echo "cart cleared";
+    } else {
+        echo "Error: " . $conn->error;
+    }
     
     
     $conn->close();
