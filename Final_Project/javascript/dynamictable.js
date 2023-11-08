@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
             row.insertCell(0).appendChild(productImage);
             row.insertCell(1).textContent = order.product;
             row.insertCell(2).textContent = order.quantity;
-            row.insertCell(3).textContent = order.price * order.quantity;
+            const subtotal = order.price * order.quantity;
+            row.insertCell(3).textContent = subtotal.toFixed(2);
 
             const form = document.createElement('form');
             form.method = 'post';

@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             row.insertCell(1).textContent = order.product;
             row.insertCell(2).textContent = order.quantity;
             const subtotal = order.price * order.quantity;
-            row.insertCell(3).textContent = subtotal;
+            row.insertCell(3).textContent = subtotal.toFixed(2);
 
             totalPrice += subtotal; 
         }
@@ -45,5 +45,5 @@ document.addEventListener('DOMContentLoaded', function() {
     totalRow.insertCell(0);
     totalRow.insertCell(1).textContent = 'Total Price';
     totalRow.insertCell(2); 
-    totalRow.insertCell(3).textContent = totalPrice; 
+    totalRow.insertCell(3).textContent = totalPrice.toFixed(2); 
 });
