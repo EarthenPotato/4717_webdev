@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Form found:', form);
 
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the form from submitting initially
+         // Prevent the form from submitting initially
         var invalidFields = [];
         var validations = {
             'cEmail': {
@@ -48,11 +48,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Function to check the field and collect error messages
         function checkField(fieldName, config) {
             var field = form.elements[fieldName];
-            if (!field.value) {
+            if (config.required && !field.value) {
                 // Use the custom requiredMessage instead of a generic message
                 invalidFields.push(config.requiredMessage);
                 field.classList.add('highlight');
-            } 
+            } else if (config.pattern && !config.pattern.test(field.value)) {
+                invalidFields.push(config.message);
+                field.classList.add('highlight');
+            } else {
+                field.classList.remove('highlight'); // Remove highlight if validation passes
+            }
         }
         // Loop over each field and validate
         for (var fieldName in validations) {
@@ -64,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // If there are invalid fields, highlight them and show a message
         if (invalidFields.length > 0) {
             alert("Please correct the following errors:\n" + invalidFields.join("\n"));
+            event.preventDefault();
         } else {
             // If everything is fine, submit the form
             form.submit();

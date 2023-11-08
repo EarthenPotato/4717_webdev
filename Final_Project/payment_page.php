@@ -21,7 +21,7 @@ if (isset($_POST['checkout'])) {
     $cPhone =$_POST['cPhone'];
 
     // Construct the SQL query
-    $sql = "INSERT INTO customers (country, name, address, room, postal_code, phone_number,     email) VALUES ('$cCountry', '$cName', '$cAddress', '$cApartment', '$cPostalCode', '$cPhone', '$cEmail')";
+    $sql = "INSERT INTO customers (country, name, address, room, postal_code, phone_number, email) VALUES ('$cCountry', '$cName', '$cAddress', '$cApartment', '$cPostalCode', '$cPhone', '$cEmail')";
 
     // Execute the SQL query
     if (mysqli_query($conn, $sql)) {
@@ -44,7 +44,6 @@ if (isset($_POST['checkout'])) {
         cPostalCode: "<?php echo addslashes($cPostalCode); ?>",
         cPhone: "<?php echo addslashes($cPhone); ?>"
     };
-    // Now you can use `customerData` in your JavaScript code
     console.log(customerData);
 </script>
 
@@ -54,7 +53,7 @@ if (isset($_POST['checkout'])) {
     <meta charset="UTF-8">
     <title>Checkout</title>
     <link rel="stylesheet" type="text/css" href="styles/payment_page.css">
-    <!-- <script src="javascript/paymentFormCheck.js"></script> -->
+    <script src="javascript/paymentFormCheck.js"></script>
 </head>
 <body>
     <div id="wrapper">
