@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
                     </tbody>
                     
                 </table>
-                  
+                <button onclick="location.href='order_sum.php'">Confirm</button>
             </div>
         </div>
     </div>

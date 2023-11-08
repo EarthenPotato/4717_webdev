@@ -22,19 +22,6 @@ if ($result && $result->num_rows > 0) {
     $itemPrice = "Item not found"; 
 }
 
-function calculate_price($product_quant, $price) {
-    return $price * $product_quant;
-}
-
-$product_quant = isset($_POST['product_quant']) ? (int)$_POST['product_quant'] : 0;
-
-if ($itemPrice !== "Item not found") {
-    $price = calculate_price($product_quant, $itemPrice);
-    // echo "The price is: " . $price;
-} else {
-    echo $itemPrice;
-}
-
 if (isset($_POST['add_to_cart'])) {
     $quantity = intval($_POST['quantity']); 
     $product_name_input = $_POST['default_product']; 
@@ -118,7 +105,7 @@ $conn->close();
                 <table>
                     <tr>
                         <td>
-                            <input type = "number" style = "width: 150px;" min = 0 max = 999 step = 1 onchange = calculate_price()>
+                            <input type = "number" style = "width: 150px;" min = 0 max = 999 step = 1 placeholder="1">
                             <button name = 'add_to_cart'>Add to cart</button><br>
                             <input type="hidden" name="default_product" value="TQ3">
                             <button name = "checkout"><strong>Check out Now!</strong></button>
