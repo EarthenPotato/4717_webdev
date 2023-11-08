@@ -25,6 +25,7 @@ if (isset($_POST['checkout'])) {
     // Execute the SQL query
     if (mysqli_query($conn, $sql)) {
         echo "Data inserted successfully.";
+        header('Location: ../order_sum.php');
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

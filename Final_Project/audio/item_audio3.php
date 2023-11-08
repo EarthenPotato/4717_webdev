@@ -62,7 +62,7 @@ if (isset($_POST["checkout"])) {
         if ($stmt->execute()) {
             $sql = "SELECT * FROM cart";
             $result = $conn->query($sql);
-            header('Location: ../order_sum.php');
+            header('Location: ../payment_page.php');
         } else {
             echo "Error: " . $stmt->error;
         }

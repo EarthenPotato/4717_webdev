@@ -64,7 +64,7 @@ function confirmOrder() {
         alert("Your cart is empty. Please add items to your cart before confirming.");
     } else {
         if (confirm("Are you sure you want to confirm the order?")) {
-            location.href = 'order_sum.php';
+            location.href = 'payment_page.php';
         }
     }
 };
