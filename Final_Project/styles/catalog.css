@@ -174,7 +174,17 @@ p {
     border-radius: 4px;
     cursor: pointer; 
 }
-
+#rightcolum button[name="confirm"] {
+    background-color: #ffd700;
+    color: #000000;
+    padding: 12px 20px;
+    border: none;
+    width: 150px;
+    margin-left: 40px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer; 
+}
 
 /* Style for the content inside the right column */
 .content img {
@@ -277,42 +287,32 @@ table {
     margin-top: 100px;
     min-width: 800px;
 }
-
-
-
-/* Style for the plus-minus-input */
-.plus-minus-input button,
-.plus-minus-input input[type="number"] {
-  padding: 12px 20px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  font-family: Arial;
-  height: auto; /* Adjust if necessary to fit the table row height */
+.shippingTable {
+    min-width: 800px;
+}
+.orderTable {
+    min-width: 0px;
+    text-align: center;
+}
+.orderTable td:nth-child(1) {
+    width: 152px;
+}
+.orderTable td:nth-child(2),
+.orderTable td:nth-child(3),
+.orderTable td:nth-child(4) {
+    width: 100px;
 }
 
-/* Styles specifically for the input */
-.plus-minus-input input[type="number"] {
-  margin: 0; /* No additional margin is necessary within a table cell */
-  min-width: 40px;
+.cartTable {
+    min-width: 0px;
+    text-align: center;
+}
+.cartTable td:nth-child(1) {
+    width: 152px;
+}
+.cartTable td:nth-child(2),
+.cartTable td:nth-child(3),
+.cartTable td:nth-child(4) {
+    width: 100px;
 }
 
-/* Hide the default spin buttons in Chrome */
-.plus-minus-input input[type=number]::-webkit-inner-spin-button,
-.plus-minus-input input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Adjust the radius for left and right buttons, if they are the first/last element in the cell */
-.plus-minus-input button:first-child {
-  border-radius: 4px 0 0 4px;
-}
-
-.plus-minus-input button:last-child {
-  border-radius: 0 4px 4px 0;
-}
-
-/* Remove focus outline on click in Chrome */
-.plus-minus-input button:focus {
-  outline: none;
-}

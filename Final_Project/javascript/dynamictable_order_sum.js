@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const table = document.querySelector('table');
     const tbody = table.querySelector('tbody');
 
-    console.log(phpData);
+    // console.log(phpData);
 
     let allQuantitiesZero = true; 
     let totalPrice = 0;
@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log(order.product, order.quantity, order.price);
             const productImage = document.createElement('img');
-            productImage.style.width = '10%';
+            productImage.style.width = '100%';
+            productImage.style.maxWidth = '100px';
 
             if (order.product.includes("AQ")) {
                 productImage.src = "pictures/headphone.jpg";
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const totalRow = tbody.insertRow();
     totalRow.insertCell(0);
-    totalRow.insertCell(1).textContent = 'Total Price';
-    totalRow.insertCell(2); 
+    totalRow.insertCell(1);
+    totalRow.insertCell(2).textContent = 'Total Price'; 
     totalRow.insertCell(3).textContent = totalPrice.toFixed(2); 
 });

@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log(order.product, order.quantity, order.price);
             const productImage = document.createElement('img');
-            productImage.style.width = '10%';
+            productImage.style.width = '100%';
+            productImage.style.maxWidth = '100px';
 
             if (order.product.includes("AQ")) {
                 productImage.src = "pictures/headphone.jpg";

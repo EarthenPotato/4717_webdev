@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
             <div class="content">
                 <h3>Shopping Cart</h3>
 
-                <table id="orderTable" >
+                <table class="cartTable" id="orderTable" >
                     <thead>
                     <tr>
                         <th></th>
@@ -105,7 +105,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
                     </tbody>
                     
                 </table>
-                <button onclick="confirmOrder()">Confirm</button>
+                <button onclick="confirmOrder()" style="margin-left:40px; margin-top:20px; background-color: #ffd700; color: #000000;">
+                    <strong>Confirm</strong>
+                </button>
             </div>
         </div>
     </div>

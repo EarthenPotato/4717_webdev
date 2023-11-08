@@ -180,9 +180,7 @@ if (isset($_POST['confirm'])) {
             <div class="content">
             <form action="order_sum.php" method="post">
                 <h3>Order Detail</h3>
-                <h4>Order Number</h4>
-                <h4>Order Date</h4>
-                <table id="orderTable" >
+                <table class="orderTable" id="orderTable">
                     <thead>
                     <tr>
                         <th></th>
@@ -195,7 +193,7 @@ if (isset($_POST['confirm'])) {
                     </tbody>
                 </table>
                 <h4>Shipping Information</h4>
-                    <table name="Shipping">
+                    <table class="shippingTable" name="Shipping">
                         <tr>
                             <td>Name</td>
                             <td><?php echo $name; ?></td>
@@ -217,7 +215,9 @@ if (isset($_POST['confirm'])) {
                             <td><?php echo $email; ?></td>
                         </tr>
                     </table>
-                    <button name = 'confirm'>Confirm</button>
+                    <button name = 'confirm' style="margin-left:40px; margin-top:20px; background-color: #ffd700; color: #000000;" >
+                            <strong>Confirm</strong>
+                    </button>
             </div>
         </div>
     </div>
