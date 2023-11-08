@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded and parsed');
     var form = document.getElementById('paymentForm');
+    console.log('Form found:', form);
 
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the form from submitting initially
@@ -41,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 'pattern': /^\d{8}$/,
                 'message': 'Phone number must be 8 digits.'
             }
-            // Add more fields if necessary
         };
 
         // Function to check the field and collect error messages
@@ -51,12 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Use the custom requiredMessage instead of a generic message
                 invalidFields.push(config.requiredMessage);
                 field.classList.add('highlight');
-            } else if (config.pattern && !config.pattern.test(field.value)) {
-                invalidFields.push(config.message);
-                field.classList.add('highlight');
-            } else {
-                field.classList.remove('highlight');
-            }
+            } 
         }
         // Loop over each field and validate
         for (var fieldName in validations) {
@@ -71,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // If everything is fine, submit the form
             form.submit();
+            console.log("Form submitted");
         }
     });
 });

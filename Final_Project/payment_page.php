@@ -12,15 +12,16 @@ if (mysqli_connect_errno()) {
 
 if (isset($_POST['checkout'])) {
     // Retrieve form data and sanitize
-    $cCountry = mysqli_real_escape_string($conn, $_POST['cCountry']);
-    $cName = mysqli_real_escape_string($conn, $_POST['cName']);
-    $cAddress = mysqli_real_escape_string($conn, $_POST['cAddress']);
-    $cApartment = mysqli_real_escape_string($conn, $_POST['cApartment']);
-    $cPostalCode = mysqli_real_escape_string($conn, $_POST['cPostalCode']);
-    $cPhone = mysqli_real_escape_string($conn, $_POST['cPhone']);
-    echo $cCountry;
+    $cEmail =  $_POST['cEmail'];
+    $cCountry =  $_POST['cCountry'];
+    $cName =  $_POST['cName'];
+    $cAddress =  $_POST['cAddress'];
+    $cApartment =$_POST['cApartment'];
+    $cPostalCode =$_POST['cPostalCode'];
+    $cPhone =$_POST['cPhone'];
+
     // Construct the SQL query
-    $sql = "INSERT INTO customers (country, name, address, room, postal_code, phone_number) VALUES ('$cCountry', '$cName', '$cAddress', '$cApartment', '$cPostalCode', '$cPhone')";
+    $sql = "INSERT INTO customers (country, name, address, room, postal_code, phone_number，email) VALUES ('cEmail','$cCountry', '$cName', '$cAddress', '$cApartment', '$cPostalCode', '$cPhone')";
 
     // Execute the SQL query
     if (mysqli_query($conn, $sql)) {
@@ -33,6 +34,21 @@ if (isset($_POST['checkout'])) {
 
 ?>
 
+<script type="text/javascript">
+    var customerData = {
+        cEmail: "<?php echo addslashes($cEmail); ?>",
+        cCountry: "<?php echo addslashes($cCountry); ?>",
+        cName: "<?php echo addslashes($cName); ?>",
+        cAddress: "<?php echo addslashes($cAddress); ?>",
+        cApartment: "<?php echo addslashes($cApartment); ?>",
+        cPostalCode: "<?php echo addslashes($cPostalCode); ?>",
+        cPhone: "<?php echo addslashes($cPhone); ?>"
+    };
+
+    // Now you can use `customerData` in your JavaScript code
+    console.log(customerData);
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +60,7 @@ if (isset($_POST['checkout'])) {
 <body>
     <div id="wrapper">
         <div id="leftcolumn">
-            <button class="cartButton" onclick="location.href='../shopping_cart.php'"><a class="cartButtonText">CART</a></button>
+            <button class="cartButton" onclick="location.href='shopping_cart.php'"><a class="cartButtonText">CART</a></button>
             <nav> 
                 <ul>
                     <li><a href="index.html">Home</a></li>
