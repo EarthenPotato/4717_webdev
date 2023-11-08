@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'required': true,
                 'requiredMessage': 'Email is required',
                 'pattern': /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                'message': 'Email is invalid'
+                'message': 'Email is invalid, it should be in this format "yourname@company.com"'
             },
             'cCountry': {
                 'required': true,
