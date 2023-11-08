@@ -57,7 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function confirmOrder() {
-    if (phpData.length === 0) {
+    let itemsInCart = phpData.filter(item => item.quantity > 0);
+
+    if (itemsInCart.length === 0) {
         alert("Your cart is empty. Please add items to your cart before confirming.");
     } else {
         if (confirm("Are you sure you want to confirm the order?")) {
@@ -65,3 +67,4 @@ function confirmOrder() {
         }
     }
 };
+
