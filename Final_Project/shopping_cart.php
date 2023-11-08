@@ -53,7 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
 ?>
 
 <script>
-    var phpData = <?php echo '["' . implode('", "', $products) . '"]'; ?>;
+    var phpData = [
+    <?php foreach ($products as $product) {
+        echo "{ product: '" . $product['product'] . "', quantity: " . $product['quantity'] . ", price: " . $product['price'] . " },";
+    }?>
+];
 </script>
 
 
