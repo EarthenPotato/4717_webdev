@@ -24,7 +24,7 @@ if ($result && $result->num_rows > 0) {
 
 
 if (isset($_POST['add_to_cart'])) {
-    $quantity = intval($_POST['quantity']); 
+$quantity = (isset($_POST['quantity']) && intval($_POST['quantity']) > 0) ? intval($_POST['quantity']) : 1;
     $product_name_input = $_POST['default_product']; 
 
     if ($product_name_input) {
