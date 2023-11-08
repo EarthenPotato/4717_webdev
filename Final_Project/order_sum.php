@@ -141,7 +141,7 @@ if (isset($_POST['confirm'])) {
 ?>
 
 <script>
-    var phpData = <?php echo json_encode($products); ?>;
+    var phpData = <?php echo '["' . implode('", "', $products) . '"]'; ?>;
 </script>
 
 

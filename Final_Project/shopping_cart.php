@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
 ?>
 
 <script>
-    var phpData = <?php echo json_encode($products); ?>;
+    var phpData = <?php echo '["' . implode('", "', $products) . '"]'; ?>;
 </script>
 
 
