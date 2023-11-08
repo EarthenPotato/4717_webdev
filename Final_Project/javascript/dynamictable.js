@@ -55,3 +55,13 @@ document.addEventListener('DOMContentLoaded', function() {
         emptyCell.textContent = 'Your cart is empty';
     }
 });
+
+function confirmOrder() {
+    if (phpData.length === 0) {
+        alert("Your cart is empty. Please add items to your cart before confirming.");
+    } else {
+        if (confirm("Are you sure you want to confirm the order?")) {
+            location.href = 'order_sum.php';
+        }
+    }
+};
