@@ -105,7 +105,7 @@ $conn->close();
                 <table>
                     <tr>
                         <td>
-                            <input type = "number" name="quantity" style = "width: 150px;" min = 0 max = 999 step = 1>
+                            <input type = "number" name="quantity" style = "width: 150px;" min = 0 max = 999 step = 1 placeholder="1">
                             <button type = "submit" name = 'add_to_cart'>Add to cart</button><br>
                             <input type="hidden" name="default_product" value="AQ1">
                             <button type = "submit" name = "checkout"><strong>Check out Now!</strong></button>
